@@ -1,0 +1,22 @@
+Harry Potter API
+
+url: https://www.potterapi.com/v1/
+
+$2a$10$uaBOxtF57MOEVumKnFQpeuQ.NDM5bS7lmAmb0gJHTWwarcz2HQam.
+
+
+Pseudo Code
+
+Intro page with just houses in a navbar. User selects one house and the page populates with pictures of members of that house. 
+
+Buttons will futher sort the members - blood status (full, half, muggleborn), Death Eater vs DA (DE, DA) and unsort button(reset)
+
+On sort of blood type, members will sort into 3 columns. Far left is pureblood, center is half, muggleborn is right. Hide unknown blood status.  
+
+On sort of DE vs DA, members will sort into 3 columns, Deather Eaters(left), Unaffilited and Dumbledor's Army. 
+
+On click of a members picture, the picture/div flips and reveals name, picture of patronus, blood status, group affliliation and wand type. 
+
+Use the Harry Potter API for all hp info and wikimedia for pictures of characters and patroni
+
+Member cards will be pentagons - like the chocolate frog cards.
