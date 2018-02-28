@@ -12,6 +12,12 @@ class App extends React.Component {
     super();
     this.state = {
       characters: [],
+      // character: []
+      // name: '',
+      // house: '',
+      // bloodStatus: '',
+      // deathEater: false,
+      // dumbledoresArmy: false,
     }
   }
 
@@ -23,21 +29,33 @@ class App extends React.Component {
       }
     })
     .then(({ data }) => {
-      data.forEach(function(characterObject){
-        console.log(characterObject);
-        return(characterObject);
+    
+      this.setState({
+        characters: data
+      //
       });
+      // console.log(this.state.characters);
       // this.setState({
-      //   characters: this.i.house
-      // });
+      //   name: data.characterObject.name,
+      //   house: characterObject.house,
+      //   bloodStatus: characterObject.bloodStatus,
+      //   deathEater: deathEater,
+      //   dumbledoresArmy
+      // })
     });
   }
-
 
     render() {
       return (
         <div>
-          <p>{this.data}</p>
+          {this.state.characters.map((character) =>{
+            return (
+              <div>
+                <h3>{character.name}</h3>
+                <h6>{character.house}</h6>
+              </div>
+            )
+          })}
         </div>
       )
     }
