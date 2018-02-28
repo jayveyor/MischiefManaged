@@ -11,19 +11,13 @@ import Ravenclaw from './ravenclaw.js'
 import Slytherin from './slytherin.js'
 import Hufflepuff from './hufflepuff.js'
 
-class App extends React.Component {
+class Home extends React.Component {
   constructor() {
     super();
     this.state = {
       characters: [],
-      // character: []
-      // name: '',
-      // house: '',
-      // bloodStatus: '',
-      // deathEater: false,
-      // dumbledoresArmy: false,
     }
-    // this.sortHouses = this.sortHouses.bind(this);
+  
   }
 
   componentDidMount() {
@@ -39,45 +33,8 @@ class App extends React.Component {
         characters: data
       //
       });
-      // console.log(this.state.characters);
-      // this.setState({
-      //   name: data.characterObject.name,
-      //   house: characterObject.house,
-      //   bloodStatus: characterObject.bloodStatus,
-      //   deathEater: deathEater,
-      //   dumbledoresArmy
-      // })
     });
   }
-
-  // sortHouses () {
-  //   let house;
-  //   let word;
-  //   word = this.state.characters.house;
-  //   if (this.state.characters.house === "Ravenclaw" ) {
-  //     house = (<h6 className="red">{this.state.characters.house}</h6> )
-  //   } else {
-  //     house = (<h6 className="green">{this.state.characters.house}</h6>)
-  //   }
-  //   return house;
-  // }
-
-  // sortHouses() {
-  //   let chara;
-   
-  //     chara = (
-  //       <div>
-  //         <h3>{character.name}</h3>
-  //         {house}
-
-  //       </div>
-  //     )
-  //   })
-  //   return chara;
-  // }
-
-
-
     render() {
       return (
         <div>
@@ -129,6 +86,22 @@ class App extends React.Component {
         </div>
       )
     }
+}
+
+class App extends React.Component { 
+render() {
+  return(
+    <Router>
+    <div>
+      <Route path = "/" exact component={Home} />
+        <Route path="/gryffindor" exact component={Gryffindor} />
+        <Route path="/ravenclaw" exact component={Ravenclaw} />
+        <Route path="/hufflepuff" exact component={Hufflepuff} />
+        <Route path="/slytherin" exact component={Slytherin} />
+    </div>
+    </Router>
+  )
+}
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
