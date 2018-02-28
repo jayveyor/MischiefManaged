@@ -6,6 +6,10 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import Gryffindor from './gryffindor.js'
+import Ravenclaw from './ravenclaw.js'
+import Slytherin from './slytherin.js'
+import Hufflepuff from './hufflepuff.js'
 
 class App extends React.Component {
   constructor() {
@@ -19,6 +23,7 @@ class App extends React.Component {
       // deathEater: false,
       // dumbledoresArmy: false,
     }
+    // this.sortHouses = this.sortHouses.bind(this);
   }
 
   componentDidMount() {
@@ -45,14 +50,79 @@ class App extends React.Component {
     });
   }
 
+  // sortHouses () {
+  //   let house;
+  //   let word;
+  //   word = this.state.characters.house;
+  //   if (this.state.characters.house === "Ravenclaw" ) {
+  //     house = (<h6 className="red">{this.state.characters.house}</h6> )
+  //   } else {
+  //     house = (<h6 className="green">{this.state.characters.house}</h6>)
+  //   }
+  //   return house;
+  // }
+
+  // sortHouses() {
+  //   let chara;
+   
+  //     chara = (
+  //       <div>
+  //         <h3>{character.name}</h3>
+  //         {house}
+
+  //       </div>
+  //     )
+  //   })
+  //   return chara;
+  // }
+
+
+
     render() {
       return (
         <div>
-          {this.state.characters.map((character) =>{
+          {this.state.characters.map((character) => {
+            let characterBio; 
+            let status;
+
+              if (character.dumbledoresArmy === true) {
+                status = (
+                  "Dumbledores Army"
+                )
+                
+              } else if (character.deathEater === true){
+                status = (
+                  "Death Eater"
+                )
+              } else {
+                status = (
+                  "Unaffiliated"
+                )
+              }
+      characterBio = (
+        <div>
+        <h2>{character.name}</h2>
+        <h6 className={character.house}>{character.house}</h6>
+          <h6>{character.bloodStatus}</h6>
+          <h6>{character.wand}</h6>
+          <h6>{character.patronus}</h6>
+          <h6>{status}</h6>
+        </div>
+      )
+        
+            let house;
+            if (character.house === "Ravenclaw") {
+              house = (<Ravenclaw characterBio={characterBio} />)
+            } else if (character.house === "Hufflepuff") {
+              house = (<Hufflepuff characterBio={characterBio} />)
+            } else if (character.house === "Slytherin") {
+              house = (<Slytherin characterBio={characterBio} />)
+            } else if (character.house === "Gryffindor") {
+              house = (<Gryffindor characterBio={characterBio} />)
+            } 
             return (
               <div>
-                <h3>{character.name}</h3>
-                <h6>{character.house}</h6>
+                {house}
               </div>
             )
           })}
