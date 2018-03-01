@@ -10,6 +10,7 @@ import Gryffindor from './gryffindor.js'
 import Ravenclaw from './ravenclaw.js'
 import Slytherin from './slytherin.js'
 import Hufflepuff from './hufflepuff.js'
+import config from './config'
 
 class Home extends React.Component {
   constructor() {
@@ -21,10 +22,10 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('https://www.potterapi.com/v1/characters', {
+    axios.get(`${config.HPapiURL}`, {
       params: {
-        key: '$2a$10$uaBOxtF57MOEVumKnFQpeuQ.NDM5bS7lmAmb0gJHTWwarcz2HQam.',
-        school: "Hogwarts School of Witchcraft and Wizardry",
+        key: config.HPapiKey,
+        school: config.school,
       }
     })
     .then(({ data }) => {
@@ -40,46 +41,54 @@ class Home extends React.Component {
         <div>
           {this.state.characters.map((character) => {
             let characterBio; 
-            let status;
+            let affiliation;
 
               if (character.dumbledoresArmy === true) {
-                status = (
+                affiliation = (
                   "Dumbledores Army"
                 )
                 
               } else if (character.deathEater === true){
-                status = (
+                affiliation = (
                   "Death Eater"
                 )
               } else {
-                status = (
+                affiliation = (
                   "Unaffiliated"
                 )
               }
       characterBio = (
         <div>
+        {/* <img src="" alt="Character Photo"/> */}
         <h2>{character.name}</h2>
         <h6 className={character.house}>{character.house}</h6>
-          <h6>{character.bloodStatus}</h6>
+          {/* maybe not BS */}
+          <h6>{character.bloodStatus}</h6> 
           <h6>{character.wand}</h6>
+          {/* <img src="" alt="Character Patronus Photo"/> */}
           <h6>{character.patronus}</h6>
-          <h6>{status}</h6>
+          <h6>{affiliation}</h6>
         </div>
       )
         
-            let house;
+            let ravenclaw;
+            let hufflepuff;
+            let slytherin;
+            let gryffindor;
             if (character.house === "Ravenclaw") {
-              house = (<Ravenclaw characterBio={characterBio} />)
+              ravenclaw = (<Ravenclaw characterBio={characterBio} />)
             } else if (character.house === "Hufflepuff") {
-              house = (<Hufflepuff characterBio={characterBio} />)
+              hufflepuff = (<Hufflepuff characterBio={characterBio} />)
             } else if (character.house === "Slytherin") {
-              house = (<Slytherin characterBio={characterBio} />)
+              slytherin = (<Slytherin characterBio={characterBio} />)
             } else if (character.house === "Gryffindor") {
-              house = (<Gryffindor characterBio={characterBio} />)
+              gryffindor = (<Gryffindor characterBio={characterBio} />)
             } 
             return (
               <div>
-                {house}
+                {ravenclaw}
+                {/* {house} */}
+
               </div>
             )
           })}
@@ -92,13 +101,21 @@ class App extends React.Component {
 render() {
   return(
     <Router>
-    <div>
-      <Route path = "/" exact component={Home} />
-        <Route path="/gryffindor" exact component={Gryffindor} />
-        <Route path="/ravenclaw" exact component={Ravenclaw} />
-        <Route path="/hufflepuff" exact component={Hufflepuff} />
-        <Route path="/slytherin" exact component={Slytherin} />
-    </div>
+      <div>
+        <header>
+          {/* <Link to="/">Home</Link> */}
+          <Link to="/gryffindor">Gryffindor</Link>
+          <Link to="/ravenclaw">Ravenclaw</Link>
+          <Link to="/hufflepuff">Hufflepuff</Link>
+          <Link to="/slytherin">Slytherin</Link>
+        </header>
+        <Route path = "/" exact component={Home} />
+          <Route path="/gryffindor" exact component={Gryffindor} />
+          <Route path="/ravenclaw" exact component={Ravenclaw} />
+          <Route path="/hufflepuff" exact component={Hufflepuff} />
+          <Route path="/slytherin" exact component={Slytherin} />
+        <Home />
+      </div>
     </Router>
   )
 }
