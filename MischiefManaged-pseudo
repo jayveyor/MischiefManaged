@@ -4,6 +4,11 @@ url: https://www.potterapi.com/v1/
 
 $2a$10$uaBOxtF57MOEVumKnFQpeuQ.NDM5bS7lmAmb0gJHTWwarcz2HQam.
 
+Brand colours:
+Ruby (red): #853538  rgb(133, 53, 56)
+Cadet (blue): #38474e  rgb(56, 71,78)
+Tan: #b4aa8b rgb(180, 170, 139)
+White: #ffffff rgb (255,255,255)
 
 Pseudo Code
 
