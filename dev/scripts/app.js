@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import Qs from 'qs';
 import { 
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom';
-import Gryffindor from './gryffindor.js'
-import Ravenclaw from './ravenclaw.js'
-import Slytherin from './slytherin.js'
-import Hufflepuff from './hufflepuff.js'
-import config from './config'
+import Gryffindor from './gryffindor.js';
+import Ravenclaw from './ravenclaw.js';
+import Slytherin from './slytherin.js';
+import Hufflepuff from './hufflepuff.js';
+import config from './config';
+
 
 class Home extends React.Component {
   constructor() {
@@ -25,7 +27,7 @@ class Home extends React.Component {
     axios.get(`${config.HPapiURL}`, {
       params: {
         key: config.HPapiKey,
-        school: config.school,
+        school: config.school
       }
     })
     .then(({ data }) => {
@@ -35,6 +37,31 @@ class Home extends React.Component {
       //
       });
     });
+    // axios({
+    //   method: 'GET',
+    //   url: 'http://proxy.hackeryou.com',
+    //   dataResponse: 'json',
+    //   paramsSerializer: function(params) {
+    //     return Qs.stringify(params, {arrayFormat: 'brackets'})
+    //   },
+    //   params: {
+    //     reqURL: 'https://www.mediawiki.org/w/api.php?action=query&titles=Albert%20Einstein&prop=images',
+    //     params: {
+    //       // action: 'query',
+    //       // titles: this.state.characters.name,
+    //       // prop: 'images'
+    //       // queryParam: 'value'
+    //     },
+    //     proxyHeaders: {
+    //       'header_params': 'value'
+    //     },
+    //     xmlToJSON: false
+    //   }
+    // })
+    //   .then((res) => {
+    //     console.log(res);
+    //     });
+
   }
 
     render() {
@@ -123,6 +150,30 @@ class App extends React.Component {
           //
         });
       });
+    axios({
+      method: 'GET',
+      url: 'http://proxy.hackeryou.com',
+      dataResponse: 'json',
+      paramsSerializer: function (params) {
+        return Qs.stringify(params, { arrayFormat: 'brackets' })
+      },
+      params: {
+        reqURL: 'https://www.mediawiki.org/w/api.php?action=query&titles=Albert%20Einstein&prop=images',
+        params: {
+          // action: 'query',
+          // titles: this.state.characters.name,
+          // prop: 'images'
+          // queryParam: 'value'
+        },
+        proxyHeaders: {
+          'header_params': 'value'
+        },
+        xmlToJSON: false
+      }
+    })
+      .then((res) => {
+        console.log(res);
+      }); 
   }
 
   characterBio(event) {
