@@ -18,7 +18,7 @@ class Home extends React.Component {
     this.state = {
       characters: []
     }
-  
+ 
   }
 
   componentDidMount() {
@@ -36,6 +36,7 @@ class Home extends React.Component {
       });
     });
   }
+
     render() {
       return (
         <div>
@@ -106,6 +107,7 @@ class App extends React.Component {
     this.state = {
       characters : []
     }
+    this.characterBio = this.characterBio.bind(this)
   }
   componentDidMount() {
     axios.get(`${config.HPapiURL}`, {
@@ -122,6 +124,39 @@ class App extends React.Component {
         });
       });
   }
+
+  characterBio(event) {
+    let affiliation;
+
+              if (event.dumbledoresArmy === true) {
+                affiliation = (
+                  "Dumbledores Army"
+                )
+
+              } else if (event.deathEater === true){
+                affiliation = (
+                  "Death Eater"
+                )
+              } else {
+                affiliation = (
+                  "Unaffiliated"
+                )
+              }
+    let characterBio;
+    characterBio = (
+      <div>
+        <h2>{event.name}</h2>
+        <h6 className={event.house}>{event.house}</h6>
+
+        <h6>{event.bloodStatus}</h6>
+        <h6>{event.wand}</h6>
+
+        <h6>{event.patronus}</h6>
+        <h6>{affiliation}</h6> 
+      </div>
+    )
+    return characterBio;
+  }
 render() {
   return(
     <Router>
@@ -137,7 +172,7 @@ render() {
         <Route 
           path="/gryffindor" 
           render={(props) => {
-            return <Gryffindor {...props} characters = {this.state.characters} />
+            return <Gryffindor {...props} characters={this.state.characters} characterBio={this.characterBio} />
           }}
           />
           <Route path="/ravenclaw" exact component={Ravenclaw} />
