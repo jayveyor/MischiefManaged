@@ -23,7 +23,7 @@ const Gryffindor = (props) => {
                 </div>
             )
         })
-    };
+    }
     
             </div>
         )
