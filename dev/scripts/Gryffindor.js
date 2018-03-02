@@ -1,5 +1,6 @@
 import React from 'react';
 import config from './config';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
       
 const Gryffindor = (props) => {
@@ -29,5 +30,18 @@ const Gryffindor = (props) => {
 }
 
 
+
+
+
+
+
+    //     {console.log(props.characters)}
+    //     return (
+    //         <div>
+    //             <p>Gryffindor</p>
+    //         </div>
+    //     );
+    // };
+    
 
 export default Gryffindor;

@@ -108,9 +108,12 @@ render() {
         <header>
           {/* <Link to="/">Home</Link> */}
           <Link to="/gryffindor">Gryffindor</Link>
-          <Link to="/ravenclaw">Ravenclaw</Link>
           <Link to="/hufflepuff">Hufflepuff</Link>
+          <Link to="/ravenclaw">Ravenclaw</Link>
           <Link to="/slytherin">Slytherin</Link>
+          <h2>Sort by:</h2>
+          <button onClick={this.sortByAff}>Affiliation</button>
+          <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
         </header>
         <Route path = "/" exact component={Home} />
         <Route 
