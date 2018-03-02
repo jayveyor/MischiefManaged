@@ -4,23 +4,24 @@ import { Link } from 'react-router-dom';
 
 // class Gryffindor extends React.Component {
 //     constructor (props) {
-//         super();
+//         super(props);
         
 const Gryffindor = (props) => {
     // return ( 
     
-    //     }
+        // }
     // render() {
         {console.log(props.characters)}
         {props.characters.map((character) =>{
-            console.log(character)
+            if(character.house === "Gryffindor") {
+                console.log(character)
+            }
         })};
         return (
             <div>
             </div>
         )
     // }
-    
 }
 
 
