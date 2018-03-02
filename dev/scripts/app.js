@@ -21,21 +21,6 @@ class Home extends React.Component {
  
   }
 
-  componentDidMount() {
-    axios.get(`${config.HPapiURL}`, {
-      params: {
-        key: config.HPapiKey,
-        school: config.school,
-      }
-    })
-    .then(({ data }) => {
-    
-      this.setState({
-        characters: data
-      //
-      });
-    });
-  }
 
     render() {
       return (
