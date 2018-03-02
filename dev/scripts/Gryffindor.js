@@ -1,19 +1,10 @@
 import React from 'react';
 import config from './config';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
-
-// class Gryffindor extends React.Component {
-//     constructor (props) {
-//         super(props);
-        
+      
 const Gryffindor = (props) => {
-    // return ( 
-    
-        // }
-    // render() {
-        // {console.log(props.characters)}
-    
-        return (
+    return (
             
             <div>
         {props.characters.map((character) =>{
@@ -36,9 +27,21 @@ const Gryffindor = (props) => {
     
             </div>
         )
-    // }
 }
 
 
+
+
+
+
+
+    //     {console.log(props.characters)}
+    //     return (
+    //         <div>
+    //             <p>Gryffindor</p>
+    //         </div>
+    //     );
+    // };
+    
 
 export default Gryffindor;

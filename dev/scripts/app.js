@@ -164,9 +164,12 @@ render() {
         <header>
           {/* <Link to="/">Home</Link> */}
           <Link to="/gryffindor">Gryffindor</Link>
-          <Link to="/ravenclaw">Ravenclaw</Link>
           <Link to="/hufflepuff">Hufflepuff</Link>
+          <Link to="/ravenclaw">Ravenclaw</Link>
           <Link to="/slytherin">Slytherin</Link>
+          <h2>Sort by:</h2>
+          <button onClick={this.sortByAff}>Affiliation</button>
+          <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
         </header>
         <Route path = "/" exact component={Home} />
         <Route 
@@ -175,9 +178,24 @@ render() {
             return <Gryffindor {...props} characters={this.state.characters} characterBio={this.characterBio} />
           }}
           />
-          <Route path="/ravenclaw" exact component={Ravenclaw} />
-          <Route path="/hufflepuff" exact component={Hufflepuff} />
-          <Route path="/slytherin" exact component={Slytherin} />
+        <Route
+          path="/ravenclaw"
+          render={(props) => {
+            return <Ravenclaw {...props} characters={this.state.characters} characterBio={this.characterBio} />
+          }}
+        />
+        <Route
+          path="/hufflepuff"
+          render={(props) => {
+            return <Hufflepuff {...props} characters={this.state.characters} characterBio={this.characterBio} />
+          }}
+        />
+        <Route
+          path="/slytherin"
+          render={(props) => {
+            return <Slytherin {...props} characters={this.state.characters} characterBio={this.characterBio} />
+          }}
+        />
         <Home />
       </div>
     </Router>
