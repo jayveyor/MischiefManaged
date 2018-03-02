@@ -1,36 +1,18 @@
 import React from 'react';
+import config from './config';
+import { Link } from 'react-router-dom';
 
 const Hufflepuff = (props) => {
-    
-    //     }
-    // render() {
-        // {console.log(props.characters)}
-           
-        return (
+   return (
             
             <div>
         {props.characters.map((character) =>{
-            // console.log(character)
-        let characterBio;
-        characterBio = (
-        <div>
-        
-        <h2>{character.name}</h2>
-        <h6 className={character.house}>{character.house}</h6>
-      
-          <h6>{character.bloodStatus}</h6> 
-          <h6>{character.wand}</h6>
-        
-          <h6>{character.patronus}</h6>
-          {/* <h6>{affiliation}</h6> */}
-        </div>
-      )
-        let hufflepuff;
+            let hufflepuff;
+           let characterBio;
+           characterBio = props.characterBio(character);
         if (character.house === "Hufflepuff") {
-              hufflepuff = (characterBio)
+            hufflepuff = (characterBio)
             } 
-            console.log(hufflepuff)
-
             return (
                 <div>
                     {hufflepuff}
@@ -41,8 +23,6 @@ const Hufflepuff = (props) => {
     
             </div>
         )
-    // }
-    
 }
 
 export default Hufflepuff;
