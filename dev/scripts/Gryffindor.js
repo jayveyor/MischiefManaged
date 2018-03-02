@@ -3,28 +3,26 @@ import config from './config';
 import { Link } from 'react-router-dom';
 
 // class Gryffindor extends React.Component {
-//     constructor () {
+//     constructor (props) {
 //         super();
-//         this.state = {
-
-
-//         };
-//     }
-
-// }
+        
 const Gryffindor = (props) => {
-    return ( 
-        <div>
-            {props.characterBio}
-        </div>
-    )
+    // return ( 
+    
+    //     }
+    // render() {
+        {console.log(props.characters)}
+        {props.characters.map((character) =>{
+            console.log(character)
+        })};
+        return (
+            <div>
+            </div>
+        )
+    // }
+    
 }
 
-// render() {
-//     return (
-//         <div>
-//             {props.gryffindor}
-//         </div>
-//     )
-// }
+
+
 export default Gryffindor;
