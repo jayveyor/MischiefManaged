@@ -69,61 +69,6 @@ class Home extends React.Component {
         <div>
 
         </div>
-      //   <div>
-      //     {this.state.characters.map((character) => {
-      //       let characterBio; 
-      //       let affiliation;
-
-      //         if (character.dumbledoresArmy === true) {
-      //           affiliation = (
-      //             "Dumbledores Army"
-      //           )
-                
-      //         } else if (character.deathEater === true){
-      //           affiliation = (
-      //             "Death Eater"
-      //           )
-      //         } else {
-      //           affiliation = (
-      //             "Unaffiliated"
-      //           )
-      //         }
-      // characterBio = (
-      //   <div>
-      //   
-      //   <h2>{character.name}</h2>
-      //   <h6 className={character.house}>{character.house}</h6>
-      // 
-      //     <h6>{character.bloodStatus}</h6> 
-      //     <h6>{character.wand}</h6>
-      //   
-      //     <h6>{character.patronus}</h6>
-      //     <h6>{affiliation}</h6>
-      //   </div>
-      // )
-        
-      //       let ravenclaw;
-      //       let hufflepuff;
-      //       let slytherin;
-      //       let gryffindor;
-      //       if (character.house === "Ravenclaw") {
-      //         ravenclaw = (<Ravenclaw characterBio={characterBio} />)
-      //       } else if (character.house === "Hufflepuff") {
-      //         hufflepuff = (<Hufflepuff characterBio={characterBio} />)
-      //       } else if (character.house === "Slytherin") {
-      //         slytherin = (<Slytherin characterBio={characterBio} />)
-      //       } else if (character.house === "Gryffindor") {
-      //         gryffindor = (<Gryffindor characterBio={characterBio} />)
-      //       } 
-      //       return (
-      //         <div>
-      //           {ravenclaw}
-      //       
-
-      //         </div>
-      //       )
-        //   })}
-        // </div>
       )
     }
 }
@@ -147,7 +92,6 @@ class App extends React.Component {
 
         this.setState({
           characters: data
-          //
         });
       });
     axios({
@@ -177,22 +121,22 @@ class App extends React.Component {
   }
 
   characterBio(event) {
+                
     let affiliation;
 
-              if (event.dumbledoresArmy === true) {
-                affiliation = (
-                  "Dumbledores Army"
-                )
+  if (event.dumbledoresArmy === true) {
+    affiliation = (
+      "Dumbledores Army"
+    )
 
-              } else if (event.deathEater === true){
-                affiliation = (
-                  "Death Eater"
-                )
-              } else {
-                affiliation = (
-                  "Unaffiliated"
-                )
-              }
+  } else if (event.deathEater === true){
+    affiliation = (
+      "Death Eater"
+    )
+  } else {
+    affiliation = (
+      "Unaffiliated"
+    )}
     let characterBio;
     characterBio = (
       <div>
