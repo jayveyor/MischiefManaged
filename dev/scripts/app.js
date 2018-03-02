@@ -16,7 +16,7 @@ class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      characters: [],
+      characters: []
     }
   
   }
@@ -39,65 +39,89 @@ class Home extends React.Component {
     render() {
       return (
         <div>
-          {this.state.characters.map((character) => {
-            let characterBio; 
-            let affiliation;
 
-              if (character.dumbledoresArmy === true) {
-                affiliation = (
-                  "Dumbledores Army"
-                )
+        </div>
+      //   <div>
+      //     {this.state.characters.map((character) => {
+      //       let characterBio; 
+      //       let affiliation;
+
+      //         if (character.dumbledoresArmy === true) {
+      //           affiliation = (
+      //             "Dumbledores Army"
+      //           )
                 
-              } else if (character.deathEater === true){
-                affiliation = (
-                  "Death Eater"
-                )
-              } else {
-                affiliation = (
-                  "Unaffiliated"
-                )
-              }
-      characterBio = (
-        <div>
-        {/* <img src="" alt="Character Photo"/> */}
-        <h2>{character.name}</h2>
-        <h6 className={character.house}>{character.house}</h6>
-          {/* maybe not BS */}
-          <h6>{character.bloodStatus}</h6> 
-          <h6>{character.wand}</h6>
-          {/* <img src="" alt="Character Patronus Photo"/> */}
-          <h6>{character.patronus}</h6>
-          <h6>{affiliation}</h6>
-        </div>
-      )
+      //         } else if (character.deathEater === true){
+      //           affiliation = (
+      //             "Death Eater"
+      //           )
+      //         } else {
+      //           affiliation = (
+      //             "Unaffiliated"
+      //           )
+      //         }
+      // characterBio = (
+      //   <div>
+      //   
+      //   <h2>{character.name}</h2>
+      //   <h6 className={character.house}>{character.house}</h6>
+      // 
+      //     <h6>{character.bloodStatus}</h6> 
+      //     <h6>{character.wand}</h6>
+      //   
+      //     <h6>{character.patronus}</h6>
+      //     <h6>{affiliation}</h6>
+      //   </div>
+      // )
         
-            let ravenclaw;
-            let hufflepuff;
-            let slytherin;
-            let gryffindor;
-            if (character.house === "Ravenclaw") {
-              ravenclaw = (<Ravenclaw characterBio={characterBio} />)
-            } else if (character.house === "Hufflepuff") {
-              hufflepuff = (<Hufflepuff characterBio={characterBio} />)
-            } else if (character.house === "Slytherin") {
-              slytherin = (<Slytherin characterBio={characterBio} />)
-            } else if (character.house === "Gryffindor") {
-              gryffindor = (<Gryffindor characterBio={characterBio} />)
-            } 
-            return (
-              <div>
-                {ravenclaw}
-                {/* {house} */}
+      //       let ravenclaw;
+      //       let hufflepuff;
+      //       let slytherin;
+      //       let gryffindor;
+      //       if (character.house === "Ravenclaw") {
+      //         ravenclaw = (<Ravenclaw characterBio={characterBio} />)
+      //       } else if (character.house === "Hufflepuff") {
+      //         hufflepuff = (<Hufflepuff characterBio={characterBio} />)
+      //       } else if (character.house === "Slytherin") {
+      //         slytherin = (<Slytherin characterBio={characterBio} />)
+      //       } else if (character.house === "Gryffindor") {
+      //         gryffindor = (<Gryffindor characterBio={characterBio} />)
+      //       } 
+      //       return (
+      //         <div>
+      //           {ravenclaw}
+      //       
 
-              </div>
-            )
-          })}
-        </div>
+      //         </div>
+      //       )
+        //   })}
+        // </div>
       )
     }
 }
 
 class App extends React.Component { 
+  constructor(props){
+    super(props);
+    this.state = {
+      characters : []
+    }
+  }
+  componentDidMount() {
+    axios.get(`${config.HPapiURL}`, {
+      params: {
+        key: config.HPapiKey,
+        school: config.school,
+      }
+    })
+      .then(({ data }) => {
+
+        this.setState({
+          characters: data
+          //
+        });
+      });
+  }
 render() {
   return(
     <Router>
@@ -110,7 +134,12 @@ render() {
           <Link to="/slytherin">Slytherin</Link>
         </header>
         <Route path = "/" exact component={Home} />
-          <Route path="/gryffindor" exact component={Gryffindor} />
+        <Route 
+          path="/gryffindor" 
+          render={(props) => {
+            return <Gryffindor {...props} characters = {this.state.characters} />
+          }}
+          />
           <Route path="/ravenclaw" exact component={Ravenclaw} />
           <Route path="/hufflepuff" exact component={Hufflepuff} />
           <Route path="/slytherin" exact component={Slytherin} />
