@@ -3,46 +3,47 @@ import config from './config';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-class Gryffindor extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            members: [],
+
+
+// class Gryffindor extends React.Component {
+//     constructor (props) {
+//         super(props);
+        
+const Gryffindor = (props) => {
+    
+    {props.characters.map((character) =>{
+        // console.log(character);
+        if(character.house === "Gryffindor") {
+            // console.log(character);
+            return character;
+
         }
 
-    }
-    componentDidMount() {
-        axios.get(`https://www.potterapi.com/v1/houses/5a05e2b252f721a3cf2ea33f`, {
-            params: {
-                key: config.HPapiKey,
-            }
-        })
-        .then(({ data }) => {
-            // console.log(data[0].members);
-            this.setState({
-                members: data[0].members
-            });
-        });
-    }
-    
-    render(){
-        console.log(this.state.members);
-        return (
-            <div>
-                {this.state.members.map((member) => {
-                    return member.name
-                })}
-            </div>
-        )
-    }
-}
+    })};
+    return (
+        <div>
+        <Link to={`/gryffindor`}> 
+            <h3>Gryffindor</h3>
+            </Link>
+        </div>
+    )
+};
 
-// const Gryffindor = (props) => {
-//     return ( 
-//         <div>
-//             {props.characterBio}
-//         </div>
-//     )
-// }
+
+
+
+
+
+
+
+
+    //     {console.log(props.characters)}
+    //     return (
+    //         <div>
+    //             <p>Gryffindor</p>
+    //         </div>
+    //     );
+    // };
+    
 
 export default Gryffindor;
