@@ -175,9 +175,24 @@ render() {
             return <Gryffindor {...props} characters={this.state.characters} characterBio={this.characterBio} />
           }}
           />
-          <Route path="/ravenclaw" exact component={Ravenclaw} />
-          <Route path="/hufflepuff" exact component={Hufflepuff} />
-          <Route path="/slytherin" exact component={Slytherin} />
+        <Route
+          path="/ravenclaw"
+          render={(props) => {
+            return <Ravenclaw {...props} characters={this.state.characters} characterBio={this.characterBio} />
+          }}
+        />
+        <Route
+          path="/hufflepuff"
+          render={(props) => {
+            return <Hufflepuff {...props} characters={this.state.characters} characterBio={this.characterBio} />
+          }}
+        />
+        <Route
+          path="/slytherin"
+          render={(props) => {
+            return <Slytherin {...props} characters={this.state.characters} characterBio={this.characterBio} />
+          }}
+        />
         <Home />
       </div>
     </Router>

@@ -1,19 +1,9 @@
 import React from 'react';
 import config from './config';
 import { Link } from 'react-router-dom';
-
-// class Gryffindor extends React.Component {
-//     constructor (props) {
-//         super();
-        
+      
 const Gryffindor = (props) => {
-    // return ( 
-    
-    //     }
-    // render() {
-        // {console.log(props.characters)}
-           
-        return (
+    return (
             
             <div>
         {props.characters.map((character) =>{
@@ -36,8 +26,6 @@ const Gryffindor = (props) => {
     
             </div>
         )
-    // }
-    
 }
 
 
