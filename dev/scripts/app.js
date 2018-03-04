@@ -10,7 +10,9 @@ import Gryffindor from './gryffindor.js'
 import Ravenclaw from './ravenclaw.js'
 import Slytherin from './slytherin.js'
 import Hufflepuff from './hufflepuff.js'
-import config from './config'
+import config from './config';
+import Chart from './Chart';
+
 
 class Home extends React.Component {
   constructor() {
@@ -40,7 +42,7 @@ class Home extends React.Component {
     render() {
       return (
         <div>
-
+          
         </div>
       //   <div>
       //     {this.state.characters.map((character) => {
@@ -160,6 +162,7 @@ class App extends React.Component {
 render() {
   return(
     <Router>
+      
       <div>
         <header>
           {/* <Link to="/">Home</Link> */}
@@ -167,11 +170,19 @@ render() {
           <Link to="/hufflepuff">Hufflepuff</Link>
           <Link to="/ravenclaw">Ravenclaw</Link>
           <Link to="/slytherin">Slytherin</Link>
-          <h2>Sort by:</h2>
+          <Link to="/Chart">Chart</Link>
+          
+          {/* <h2>Sort by:</h2>
           <button onClick={this.sortByAff}>Affiliation</button>
-          <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
+        <button onClick={this.sortByAnces}>Wizarding Ancestry</button> */}
         </header>
+        
         <Route path = "/" exact component={Home} />
+        <Route path="/Chart" 
+        render={(props) => {
+          return <Chart {...props} characters={this.state.characters} characterBio={this.state.characterBio} />
+        }}
+        />
         <Route 
           path="/gryffindor" 
           render={(props) => {

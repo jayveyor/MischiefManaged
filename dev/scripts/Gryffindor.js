@@ -2,31 +2,39 @@ import React from 'react';
 import config from './config';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-      
-const Gryffindor = (props) => {
-    return (
-            
-            <div>
-        {props.characters.map((character) =>{
-            // console.log(character)
-        let gryffindor;
-           let characterBio;
-           characterBio = props.characterBio(character);
-        if (character.house === "Gryffindor") {
-            gryffindor = (characterBio)
-            } 
-            console.log(gryffindor)
+import Chart from 'Chart.js';
+import PropTypes from 'prop-types';
 
-            return (
-                <div>
-                    {gryffindor}
-                </div>
-            )
-        })
-    };
+
+
+
+const Gryffindor = (props) => {
+
+
+    return (
+        <React.Fragment>
+                {props.characters.map((character) =>{
+                    let gryffindor;
+                    let characterBio;
+
+                    characterBio = props.characterBio(character);
+                    if (character.house === "Gryffindor") {
+                        gryffindor = (characterBio)
+
+                    } 
+                console.log(character)
+                    
+                    return (
+                        <div>
+                            {gryffindor}
+                        </div>
+                        )
+                    })
+
+                });
+    </React.Fragment>
     
-            </div>
-        )
+            )
 }
 
 
