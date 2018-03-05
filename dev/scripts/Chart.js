@@ -3,6 +3,9 @@ import { render } from 'react-dom';
 import { Doughnut } from 'react-chartjs-2';
 import { Link } from 'react-router-dom';
 import Gryffindor from './Gryffindor';
+import Hufflepuff from './Hufflepuff';
+import Ravenclaw from './Ravenclaw';
+import Slytherin from './Slytherin';
 
 
 class Chart extends React.Component {

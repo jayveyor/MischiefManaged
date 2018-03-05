@@ -1,28 +1,64 @@
 import React from 'react';
 import config from './config';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Chart from './Chart';
 
-const Ravenclaw = (props) => {
-       return (
-            
-            <div>
-        {props.characters.map((character) =>{
-            let Ravenclaw;
-           let characterBio;
-           characterBio = props.characterBio(character);
-        if (character.house === "Ravenclaw") {
-            Ravenclaw = (characterBio)
-            } 
-            return (
-                <div>
-                    {Ravenclaw}
-                </div>
-            )
-        })
+class Ravenclaw extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            deathEaterCount:0,
+            DACount: 0,
+            unaffiliatedCount: 0,
+            characters: this.props.characters,
+        }
     }
-    
+    componentWillReceiveProps(props) {
+        let charState = Array.from(props.characters);
+        charState = charState.filter((character) => {
+            return character.house === 'Ravenclaw';
+        });
+
+
+        charState.forEach((char) => {
+
+
+            if (char.deathEater === true) {
+                this.setState({
+                    deathEaterCount: this.state.deathEaterCount++
+                });
+            }
+            else if (char.dumbledoresArmy === true) {
+                this.setState({
+                    DACount: this.state.DACount++
+                })
+            }
+            else {
+                this.setState({
+                    unaffiliatedCount: this.state.unaffiliatedCount++
+                })
+
+            }
+
+        });
+
+        this.setState({
+            characters: charState
+        });
+    }
+    render() {
+        return (
+            <div>
+                {this.state.characters.map((character) => {
+                    return (
+                        <div>{this.props.characterBio(character)}</div>
+                    )
+                })}
+                <Chart DACount={this.state.DACount} deathEaterCount={this.state.deathEaterCount} unaffiliatedCount={this.state.unaffiliatedCount} />
             </div>
         )
+    }
 }
 
 export default Ravenclaw;

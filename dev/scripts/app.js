@@ -119,7 +119,7 @@ render() {
         <Route 
           path="/gryffindor" 
           render={(props) => {
-            return <Gryffindor {...props} addArmy={this.addArmy} characters={this.state.characters} characterBio={this.characterBio} />
+            return <Gryffindor {...props} characters={this.state.characters} characterBio={this.characterBio} />
           }}
           />
         <Route
