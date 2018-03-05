@@ -33,7 +33,8 @@ const Gryffindor = (props) => {
 
                 gryffindor = (characterBio)
 
-                console.log(DACount);   
+                console.log(DACount);
+                // props.addArmy(DACount);   
             }
 
             
