@@ -8,30 +8,28 @@ import Gryffindor from './Gryffindor';
 class Chart extends React.Component {
     constructor(props){
         super(props);
-        console.log(props.characters);
-        
         this.state = {
             chartData: {
-                labels: ['Wizard-Only Ancestry', 'Mixed Ancestry', 'Muggle-Only Ancestry', 'Unknown'],
+            }
+            };
+    }
+    componentWillReceiveProps(props) {
+        this.setState({
+            chartData: {
+                labels: [`Death Eater`, `Dumbledore's Army`, `Unaffiliated`],
                 datasets: [
                     {
                         label: 'Magic Stuff',
-                        data: [
-                            18,
-                            7,
-                            4,
-                            12
-                        ],
-                        backgroundColor: ['purple', 'orange', 'pink', 'tan']
+                        data: [props.deathEaterCount, props.DACount, props.unaffiliatedCount],
+                        backgroundColor: ['purple', 'orange', 'pink']
                     }
                 ]
-            }
-        };
+            }            
+        })
     }
     render() {
         return(
             <div>
-                <p>hello</p>
                 <Doughnut
                     data={this.state.chartData}
                     options={{

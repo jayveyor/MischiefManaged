@@ -59,6 +59,7 @@ class App extends React.Component {
   characterBio(event) {
                 
     let affiliation;
+    // console.log(event);
 
   if (event.dumbledoresArmy === true) {
     affiliation = (
