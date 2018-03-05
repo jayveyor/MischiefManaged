@@ -1,7 +1,11 @@
 @import "partials/_normalize.scss";
 @import "partials/_variables.scss";
 .gryffindor {
+<<<<<<< HEAD
     background-color:$red;
+=======
+    background-color:$gryff;
+>>>>>>> e15535db1308320464b7029e6ba1e0a218e33096
 }
 
 .hufflepuff {
@@ -9,11 +13,15 @@
 }
 
 .ravenclaw {
-    background-color:$blue;
+    background-color:$raven;
 }
 
 .slytherin {
+<<<<<<< HEAD
     background-color:$green;
+=======
+    background-color: $green;
+>>>>>>> e15535db1308320464b7029e6ba1e0a218e33096
 }
 
 a {
