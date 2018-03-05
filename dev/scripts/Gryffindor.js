@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 
 let deathEaterCount = 0;
-let DACount = 0;
+let DACount = 0; 
 let unaffiliatedCount = 0;
 const Gryffindor = (props) => {
     return (
@@ -26,11 +26,11 @@ const Gryffindor = (props) => {
             } else {
                 unaffiliatedCount = unaffiliatedCount + 1;
             }
-
-                gryffindor = (characterBio)
+            
+            gryffindor = (characterBio)
                 
                 // console.log(deathEaterCount);
-                console.log(DACount);
+                // console.log(DACount);
                 // console.log(unaffiliatedCount);
                 // console.log(character)
 

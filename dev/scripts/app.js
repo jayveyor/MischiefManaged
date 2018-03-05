@@ -106,7 +106,7 @@ render() {
           </div>
           <h2>Sort by:</h2>
           <button onClick={this.sortByAff}>Affiliation</button>
-        <button onClick={this.sortByAnces}>Wizarding Ancestry</button> */}
+          <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
         </header>
         
         <Route path = "/" exact component={Home} />
