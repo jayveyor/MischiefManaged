@@ -8,15 +8,14 @@ const Gryffindor = (props) => {
             
             <div>
         {props.characters.map((character) =>{
-            // console.log(character)
         let gryffindor;
            let characterBio;
            characterBio = props.characterBio(character);
         if (character.house === "Gryffindor") {
-            gryffindor = (characterBio)
-            } 
-            console.log(gryffindor)
 
+            gryffindor = (characterBio);
+            
+            } 
             return (
                 <div>
                     {gryffindor}

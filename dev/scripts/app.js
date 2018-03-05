@@ -18,6 +18,7 @@ class Home extends React.Component {
     this.state = {
       characters: []
     }
+
  
   }
 
@@ -35,9 +36,11 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      characters : []
+      characters : [],
+      army: 0,
     }
-    this.characterBio = this.characterBio.bind(this)
+    this.characterBio = this.characterBio.bind(this);
+    // this.addArmy = this.addArmy.bind(this);
   }
   componentDidMount() {
     axios.get(`${config.HPapiURL}`, {
@@ -53,7 +56,9 @@ class App extends React.Component {
         });
       });
   }
-
+  // addArmy(character) {
+   
+  // }
   characterBio(event) {
                 
     let affiliation;
@@ -72,11 +77,13 @@ class App extends React.Component {
       "Unaffiliated"
     )}
     let characterBio;
+    
     characterBio = (
       <div className="characterBio">
         <img className="frogCard" src="./chocolatefrogback.png" alt=""/>
         <img className="portrait" src="./ginny.jpg" alt="" />
       <div className="characterInfo">
+     
         <h6 className={event.house}>{event.house}</h6>
 
         <h6>{event.bloodStatus}</h6>
@@ -88,8 +95,10 @@ class App extends React.Component {
         <h2 className="characterName" >{event.name}</h2>
       </div>
     )
+
     return characterBio;
   }
+
 render() {
   return(
     <Router>
@@ -132,6 +141,7 @@ render() {
           }}
         />
         <Home />
+        {console.log(this.state.army)}
       </div>
     </Router>
   )
