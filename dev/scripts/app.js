@@ -20,49 +20,9 @@ class Home extends React.Component {
     this.state = {
       characters: []
     }
- 
-  }
-
-  componentDidMount() {
-    axios.get(`${config.HPapiURL}`, {
-      params: {
-        key: config.HPapiKey,
-        school: config.school
-      }
-    })
-    .then(({ data }) => {
-    
-      this.setState({
-        characters: data
-      //
-      });
-    });
-    // axios({
-    //   method: 'GET',
-    //   url: 'http://proxy.hackeryou.com',
-    //   dataResponse: 'json',
-    //   paramsSerializer: function(params) {
-    //     return Qs.stringify(params, {arrayFormat: 'brackets'})
-    //   },
-    //   params: {
-    //     reqURL: 'https://www.mediawiki.org/w/api.php?action=query&titles=Albert%20Einstein&prop=images',
-    //     params: {
-    //       // action: 'query',
-    //       // titles: this.state.characters.name,
-    //       // prop: 'images'
-    //       // queryParam: 'value'
-    //     },
-    //     proxyHeaders: {
-    //       'header_params': 'value'
-    //     },
-    //     xmlToJSON: false
-    //   }
-    // })
-    //   .then((res) => {
-    //     console.log(res);
-    //     });
 
   }
+
 
     render() {
       return (
@@ -93,7 +53,7 @@ class App extends React.Component {
         this.setState({
           characters: data
         });
-      });
+      });  
     axios({
       method: 'GET',
       url: 'http://proxy.hackeryou.com',
@@ -102,11 +62,12 @@ class App extends React.Component {
         return Qs.stringify(params, { arrayFormat: 'brackets' })
       },
       params: {
-        reqURL: 'https://www.mediawiki.org/w/api.php?action=query&titles=Albert%20Einstein&prop=images',
+        reqURL: 'https://www.mediawiki.org/w/api.php',
         params: {
-          // action: 'query',
-          // titles: this.state.characters.name,
-          // prop: 'images'
+          'action': 'query',
+          'titles': 'Albert Einstein',
+          'action': 'centralauthtoken',
+          'prop': 'images'
           // queryParam: 'value'
         },
         proxyHeaders: {
@@ -139,8 +100,12 @@ class App extends React.Component {
     )}
     let characterBio;
     characterBio = (
-      <div>
-        <h2>{event.name}</h2>
+      <div className="characterBio">
+        <img className="frogCard" src="./chocolatefrogback.png" alt=""/>
+        {/* remove back to see front */}
+        <img className="portrait" src="./ginny.jpg" alt="" />
+        {/* comment out character info when front showing */}
+      <div className="characterInfo">
         <h6 className={event.house}>{event.house}</h6>
 
         <h6>{event.bloodStatus}</h6>
@@ -149,19 +114,23 @@ class App extends React.Component {
         <h6>{event.patronus}</h6>
         <h6>{affiliation}</h6> 
       </div>
+        <h2 className="characterName" >{event.name}</h2>
+      </div>
     )
     return characterBio;
   }
 render() {
   return(
     <Router>
-      <div>
+      <div className="main">
         <header>
           {/* <Link to="/">Home</Link> */}
-          <Link to="/gryffindor">Gryffindor</Link>
-          <Link to="/hufflepuff">Hufflepuff</Link>
-          <Link to="/ravenclaw">Ravenclaw</Link>
-          <Link to="/slytherin">Slytherin</Link>
+          <div className="houseTabs">
+            <div className="gryffindor"><Link to="/gryffindor">Gryffindor</Link></div>
+            <div className="hufflepuff"> <Link to="/hufflepuff">Hufflepuff</Link></div>
+            <div className="ravenclaw"><Link to="/ravenclaw">Ravenclaw</Link></div>
+            <div className="slytherin"> <Link to="/slytherin">Slytherin</Link></div>
+          </div>
           <h2>Sort by:</h2>
           <button onClick={this.sortByAff}>Affiliation</button>
           <button onClick={this.sortByAnces}>Wizarding Ancestry</button>

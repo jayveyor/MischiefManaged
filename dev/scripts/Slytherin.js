@@ -19,7 +19,7 @@ const Slytherin = (props) => {
                 </div>
             )
         })
-    };
+    }
     
             </div>
         )

@@ -1,15 +1,67 @@
-.Gryffindor {
-    color:red;
+@import "partials/_normalize.scss";
+@import "partials/_variables.scss";
+.gryffindor {
+    background-color:red;
 }
 
-.Hufflepuff {
-    color:yellow;
+.hufflepuff {
+    background-color:yellow;
 }
 
-.Ravenclaw {
-    color:blue;
+.ravenclaw {
+    background-color:blue;
 }
 
-.Slytherin {
-    color: green;
+.slytherin {
+    background-color: green;
+}
+
+.characterBio {
+    float:left;
+    height: 340px;
+    margin: 5px;
+    position:relative;
+     text-align:center;
+}
+
+.characterBio h2 {
+    margin: 15px auto;
+}
+.frogCard {
+    height: 270px;
+    position:relative;
+    z-index:2;
+}
+.portrait {
+    position: absolute;
+    z-index: 1;
+    height: 170px;
+    left: 28%;
+    top: 22%;
+}
+
+.characterInfo {
+    position: absolute;
+    z-index:4;
+    top:30%;
+    width:280px;
+}
+
+.characterInfo h6 {
+     color: $tan;
+}
+
+.houseTabs {
+width: 100%;
+}
+
+.houseTabs div {
+    width:25%;
+    float:left;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h2 {
+    margin-top:15px;
 }

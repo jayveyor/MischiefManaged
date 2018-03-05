@@ -19,7 +19,7 @@ const Hufflepuff = (props) => {
                 </div>
             )
         })
-    };
+    }
     
             </div>
         )
