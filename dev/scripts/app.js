@@ -23,82 +23,12 @@ class Home extends React.Component {
  
   }
 
-  componentDidMount() {
-    axios.get(`${config.HPapiURL}`, {
-      params: {
-        key: config.HPapiKey,
-        school: config.school,
-      }
-    })
-    .then(({ data }) => {
-    
-      this.setState({
-        characters: data
-      //
-      });
-    });
-  }
 
     render() {
       return (
         <div>
           
         </div>
-      //   <div>
-      //     {this.state.characters.map((character) => {
-      //       let characterBio; 
-      //       let affiliation;
-
-      //         if (character.dumbledoresArmy === true) {
-      //           affiliation = (
-      //             "Dumbledores Army"
-      //           )
-                
-      //         } else if (character.deathEater === true){
-      //           affiliation = (
-      //             "Death Eater"
-      //           )
-      //         } else {
-      //           affiliation = (
-      //             "Unaffiliated"
-      //           )
-      //         }
-      // characterBio = (
-      //   <div>
-      //   
-      //   <h2>{character.name}</h2>
-      //   <h6 className={character.house}>{character.house}</h6>
-      // 
-      //     <h6>{character.bloodStatus}</h6> 
-      //     <h6>{character.wand}</h6>
-      //   
-      //     <h6>{character.patronus}</h6>
-      //     <h6>{affiliation}</h6>
-      //   </div>
-      // )
-        
-      //       let ravenclaw;
-      //       let hufflepuff;
-      //       let slytherin;
-      //       let gryffindor;
-      //       if (character.house === "Ravenclaw") {
-      //         ravenclaw = (<Ravenclaw characterBio={characterBio} />)
-      //       } else if (character.house === "Hufflepuff") {
-      //         hufflepuff = (<Hufflepuff characterBio={characterBio} />)
-      //       } else if (character.house === "Slytherin") {
-      //         slytherin = (<Slytherin characterBio={characterBio} />)
-      //       } else if (character.house === "Gryffindor") {
-      //         gryffindor = (<Gryffindor characterBio={characterBio} />)
-      //       } 
-      //       return (
-      //         <div>
-      //           {ravenclaw}
-      //       
-
-      //         </div>
-      //       )
-        //   })}
-        // </div>
       )
     }
 }
@@ -122,57 +52,59 @@ class App extends React.Component {
 
         this.setState({
           characters: data
-          //
         });
       });
   }
 
   characterBio(event) {
+                
     let affiliation;
 
-              if (event.dumbledoresArmy === true) {
-                affiliation = (
-                  "Dumbledores Army"
-                )
+  if (event.dumbledoresArmy === true) {
+    affiliation = (
+      "Dumbledores Army"
+    )
 
-              } else if (event.deathEater === true){
-                affiliation = (
-                  "Death Eater"
-                )
-              } else {
-                affiliation = (
-                  "Unaffiliated"
-                )
-              }
+  } else if (event.deathEater === true){
+    affiliation = (
+      "Death Eater"
+    )
+  } else {
+    affiliation = (
+      "Unaffiliated"
+    )}
     let characterBio;
-      characterBio = (
-        <div>
-          <h2>{event.name}</h2>
-          <h6 className={event.house}>{event.house}</h6>
+    characterBio = (
+      <div className="characterBio">
+        <img className="frogCard" src="./chocolatefrogback.png" alt=""/>
+        <img className="portrait" src="./ginny.jpg" alt="" />
+      <div className="characterInfo">
+        <h6 className={event.house}>{event.house}</h6>
 
           <h6>{event.bloodStatus}</h6>
           <h6>{event.wand}</h6>
 
-          <h6>{event.patronus}</h6>
-          <h6>{affiliation}</h6> 
-        </div>
-      )
-      return characterBio;
-    }
+        <h6>{event.patronus}</h6>
+        <h6>{affiliation}</h6> 
+      </div>
+        <h2 className="characterName" >{event.name}</h2>
+      </div>
+    )
+    return characterBio;
+  }
 render() {
   return(
     <Router>
-      
-      <div>
+      <div className="main">
         <header>
           {/* <Link to="/">Home</Link> */}
-          <Link to="/gryffindor">Gryffindor</Link>
-          <Link to="/hufflepuff">Hufflepuff</Link>
-          <Link to="/ravenclaw">Ravenclaw</Link>
-          <Link to="/slytherin">Slytherin</Link>
-          <Link to="/Chart">Chart</Link>
-          
-          {/* <h2>Sort by:</h2>
+          <div className="houseTabs">
+            <div className="gryffindor"><Link to="/gryffindor">Gryffindor</Link></div>
+            <div className="hufflepuff"> <Link to="/hufflepuff">Hufflepuff</Link></div>
+            <div className="ravenclaw"><Link to="/ravenclaw">Ravenclaw</Link></div>
+            <div className="slytherin"> <Link to="/slytherin">Slytherin</Link></div>
+          </div>
+          <h2>Sort by:</h2>
           <button onClick={this.sortByAff}>Affiliation</button>
         <button onClick={this.sortByAnces}>Wizarding Ancestry</button> */}
         </header>

@@ -19,7 +19,7 @@ const Ravenclaw = (props) => {
                 </div>
             )
         })
-    };
+    }
     
             </div>
         )
