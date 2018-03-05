@@ -12,7 +12,7 @@ import Ravenclaw from './ravenclaw.js'
 import Slytherin from './slytherin.js'
 import Hufflepuff from './hufflepuff.js'
 import config from './config';
-import Chart from './Chart';
+// import Chart from './Chart';
 
 
 class Home extends React.Component {
@@ -46,43 +46,55 @@ class App extends React.Component {
     // this.addArmy = this.addArmy.bind(this);
   }
   componentDidMount() {
-    axios.get(`${config.HPapiURL}`, {
+    axios.get("https://harrypotter.wikia.com/api/v1/Articles/List", {
       params: {
-        key: config.HPapiKey,
-        school: config.school,
-      }
-    })
-      .then(({ data }) => {
-
-        this.setState({
-          characters: data
-        });
-      });  
-    axios({
-      method: 'GET',
-      url: 'http://proxy.hackeryou.com',
-      dataResponse: 'json',
-      paramsSerializer: function (params) {
-        return Qs.stringify(params, { arrayFormat: 'brackets' })
-      },
-      params: {
-        reqURL: 'https://www.mediawiki.org/w/api.php',
-        params: {
-          'action': 'query',
-          'titles': 'Albert Einstein',
-          'action': 'centralauthtoken',
-          'prop': 'images'
-          // queryParam: 'value'
-        },
-        proxyHeaders: {
-          'header_params': 'value'
-        },
-        xmlToJSON: false
+        expand: 1,
+        category: "Wizards",
+        limit: 40,
       }
     })
       .then((res) => {
-        console.log(res);
-      }); 
+          console.log(res);
+        // this.setState({
+        //   characters: data
+        // });
+      });  
+    // axios.get(`${config.HPapiURL}`, {
+    //   params: {
+    //     key: config.HPapiKey,
+    //     school: config.school,
+    //   }
+    // })
+    //   .then(({ data }) => {
+
+    //     this.setState({
+    //       characters: data
+    //     });
+    //   });  
+    // axios({
+    //   method: 'GET',
+    //   url: 'http://proxy.hackeryou.com',
+    //   dataResponse: 'json',
+    //   paramsSerializer: function (params) {
+    //     return Qs.stringify(params, { arrayFormat: 'brackets' })
+    //   },
+    //   params: {
+    //     reqUrl: 'https://en.wikipedia.org/w/api.php',
+    //     params: {
+    //       format: 'json',
+    //       formatversion: '2',
+    //       action: 'query',
+    //       titles: 'Albert Einstein',
+    //       prop: 'images'
+    //     }
+    //   }
+    // })
+    //   .then((res) => {
+    //     console.log(res);
+    //   }, rej => {
+    //     console.log(rej);
+    //   }
+    // );
   }
   // addArmy(character) {
    

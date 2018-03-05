@@ -24,11 +24,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^3.1.0",
-<<<<<<< HEAD
-    "qs": "^6.5.1",
-=======
     "prop-types": "^15.6.1",
->>>>>>> 40cb4989f61c04c1245415f7aea3526f8ba2dcb5
     "react": "^16.1.1",
     "react-chartjs-2": "^2.7.0",
     "react-dom": "^16.1.1",

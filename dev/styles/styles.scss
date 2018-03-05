@@ -1,11 +1,11 @@
 @import "partials/_normalize.scss";
 @import "partials/_variables.scss";
 .gryffindor {
-    background-color:rgb(180, 17, 17);
+    background-color:$red;
 }
 
 .hufflepuff {
-    background-color:#E7D625;
+    background-color:$yellow;
 }
 
 .ravenclaw {
@@ -13,7 +13,7 @@
 }
 
 .slytherin {
-    background-color: rgb(40, 104, 40);
+    background-color:$green;
 }
 
 a {
@@ -58,7 +58,7 @@ body {
 }
 
 .characterInfo h6 {
-     color: $tan;
+     color: $oldtan;
 }
 
 .houseTabs {
