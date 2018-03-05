@@ -39,7 +39,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       characters : [],
-      army: 0,
     }
     this.characterBio = this.characterBio.bind(this);
     // this.addArmy = this.addArmy.bind(this);
@@ -64,6 +63,7 @@ class App extends React.Component {
   characterBio(event) {
                 
     let affiliation;
+    // console.log(event);
 
   if (event.dumbledoresArmy === true) {
     affiliation = (
@@ -145,7 +145,7 @@ render() {
           }}
         />
         <Home />
-        {console.log(this.state.army)}
+        {/* {console.log(this.state.army)} */}
       </div>
     </Router>
   )
