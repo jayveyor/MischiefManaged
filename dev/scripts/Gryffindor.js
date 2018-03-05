@@ -3,7 +3,7 @@ import config from './config';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 // import Chart from './Chart';
-      
+
 
 
 let deathEaterCount = 0;
@@ -11,43 +11,42 @@ let DACount = 0;
 let unaffiliatedCount = 0;
 const Gryffindor = (props) => {
     return (
-            
-            <div>
-        {props.characters.map((character) =>{
 
-            // console.log(character)
-            let gryffindor;
-           let characterBio;
-           characterBio = props.characterBio(character);
-            if (character.house === "Gryffindor" && character.dumbledoresArmy === true) {
-                DACount = DACount + 1;
+        <div>
+            {props.characters.map((character) => {
+
+                // console.log(character)
+                let gryffindor;
+                let characterBio;
+                if (character.house === "Gryffindor") {
+                    gryffindor = (characterBio)
                 
-            } else if (character.house === "Gryffindor" && character.deathEater === true) {
-                deathEaterCount = deathEaterCount + 1;
-            } else {
-                unaffiliatedCount = unaffiliatedCount + 1;
-            }
+                characterBio = props.characterBio(character);
+                if (character.house === "Gryffindor" && character.dumbledoresArmy === true) {
+                    DACount = DACount + 1;
+
+                } else if (character.house === "Gryffindor" && character.deathEater === true) {
+                    deathEaterCount = deathEaterCount + 1;
+                } else {
+                    unaffiliatedCount = unaffiliatedCount + 1;
+                }
 
                 gryffindor = (characterBio)
-                
-                // console.log(deathEaterCount);
-                console.log(DACount);
-                // console.log(unaffiliatedCount);
-                // console.log(character)
 
-            gryffindor = (characterBio);
+                console.log(DACount);   
+            }
+
             
-            } 
             return (
                 <div>
-                    {gryffindor}
-                </div>
+                {gryffindor}
+            </div>
             )
         })
     }
-    
+
             </div>
-        )
+    )
 }
 
 
@@ -81,7 +80,7 @@ const Gryffindor = (props) => {
 //                     </div>
 //                 )
 //             } 
-                    
+
 //         )}
 
 //     </React.Fragment>
