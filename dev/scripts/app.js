@@ -7,11 +7,12 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import Gryffindor from './gryffindor.js';
-import Ravenclaw from './ravenclaw.js';
-import Slytherin from './slytherin.js';
-import Hufflepuff from './hufflepuff.js';
+import Gryffindor from './gryffindor.js'
+import Ravenclaw from './ravenclaw.js'
+import Slytherin from './slytherin.js'
+import Hufflepuff from './hufflepuff.js'
 import config from './config';
+import Chart from './Chart';
 
 
 class Home extends React.Component {
@@ -21,13 +22,14 @@ class Home extends React.Component {
       characters: []
     }
 
+ 
   }
 
 
     render() {
       return (
         <div>
-
+          
         </div>
       )
     }
@@ -37,9 +39,11 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      characters : []
+      characters : [],
+      army: 0,
     }
-    this.characterBio = this.characterBio.bind(this)
+    this.characterBio = this.characterBio.bind(this);
+    // this.addArmy = this.addArmy.bind(this);
   }
   componentDidMount() {
     axios.get(`${config.HPapiURL}`, {
@@ -80,7 +84,9 @@ class App extends React.Component {
         console.log(res);
       }); 
   }
-
+  // addArmy(character) {
+   
+  // }
   characterBio(event) {
                 
     let affiliation;
@@ -99,6 +105,7 @@ class App extends React.Component {
       "Unaffiliated"
     )}
     let characterBio;
+    
     characterBio = (
       <div className="characterBio">
         <img className="frogCard" src="./chocolatefrogback.png" alt=""/>
@@ -106,10 +113,11 @@ class App extends React.Component {
         <img className="portrait" src="./ginny.jpg" alt="" />
         {/* comment out character info when front showing */}
       <div className="characterInfo">
+     
         <h6 className={event.house}>{event.house}</h6>
 
-        <h6>{event.bloodStatus}</h6>
-        <h6>{event.wand}</h6>
+          <h6>{event.bloodStatus}</h6>
+          <h6>{event.wand}</h6>
 
         <h6>{event.patronus}</h6>
         <h6>{affiliation}</h6> 
@@ -117,8 +125,10 @@ class App extends React.Component {
         <h2 className="characterName" >{event.name}</h2>
       </div>
     )
+
     return characterBio;
   }
+
 render() {
   return(
     <Router>
@@ -133,9 +143,11 @@ render() {
           </div>
           <h2>Sort by:</h2>
           <button onClick={this.sortByAff}>Affiliation</button>
-          <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
+        <button onClick={this.sortByAnces}>Wizarding Ancestry</button> */}
         </header>
+        
         <Route path = "/" exact component={Home} />
+        <Route path="/Chart" exact component={Chart} />
         <Route 
           path="/gryffindor" 
           render={(props) => {
@@ -161,6 +173,7 @@ render() {
           }}
         />
         <Home />
+        {console.log(this.state.army)}
       </div>
     </Router>
   )
