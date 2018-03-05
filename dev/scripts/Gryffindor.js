@@ -14,6 +14,7 @@ const Gryffindor = (props) => {
             
             <div>
         {props.characters.map((character) =>{
+
             // console.log(character)
             let gryffindor;
            let characterBio;
@@ -34,6 +35,9 @@ const Gryffindor = (props) => {
                 // console.log(unaffiliatedCount);
                 // console.log(character)
 
+            gryffindor = (characterBio);
+            
+            } 
             return (
                 <div>
                     {gryffindor}
