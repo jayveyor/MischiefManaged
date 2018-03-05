@@ -41,7 +41,6 @@ class App extends React.Component {
       characters : [],
     }
     this.characterBio = this.characterBio.bind(this);
-    // this.addArmy = this.addArmy.bind(this);
   }
   componentDidMount() {
     axios.get(`${config.HPapiURL}`, {
@@ -54,12 +53,9 @@ class App extends React.Component {
 
         this.setState({
           characters: data
-        });
+        }); 
       });
   }
-  // addArmy(character) {
-   
-  // }
   characterBio(event) {
                 
     let affiliation;
@@ -123,7 +119,7 @@ render() {
         <Route 
           path="/gryffindor" 
           render={(props) => {
-            return <Gryffindor {...props} characters={this.state.characters} characterBio={this.characterBio} />
+            return <Gryffindor {...props} addArmy={this.addArmy} characters={this.state.characters} characterBio={this.characterBio} />
           }}
           />
         <Route
@@ -145,7 +141,6 @@ render() {
           }}
         />
         <Home />
-        {/* {console.log(this.state.army)} */}
       </div>
     </Router>
   )

@@ -41,6 +41,7 @@ class Gryffindor extends React.Component {
                 this.setState({
                     unaffiliatedCount: this.state.unaffiliatedCount++
                 })
+
             }
 
         });
