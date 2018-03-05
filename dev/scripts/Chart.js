@@ -8,11 +8,11 @@ import Gryffindor from './Gryffindor';
 class Chart extends React.Component {
     constructor(props){
         super(props);
-        console.log(props);
+        console.log(props.characters);
         
         this.state = {
             chartData: {
-                labels: ['Wizard Ancestry', 'Mixed Ancestry', 'Muggle Ancestry', 'Unknown'],
+                labels: ['Wizard-Only Ancestry', 'Mixed Ancestry', 'Muggle-Only Ancestry', 'Unknown'],
                 datasets: [
                     {
                         label: 'Magic Stuff',

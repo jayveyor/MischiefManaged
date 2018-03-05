@@ -145,20 +145,20 @@ class App extends React.Component {
                 )
               }
     let characterBio;
-    characterBio = (
-      <div>
-        <h2>{event.name}</h2>
-        <h6 className={event.house}>{event.house}</h6>
+      characterBio = (
+        <div>
+          <h2>{event.name}</h2>
+          <h6 className={event.house}>{event.house}</h6>
 
-        <h6>{event.bloodStatus}</h6>
-        <h6>{event.wand}</h6>
+          <h6>{event.bloodStatus}</h6>
+          <h6>{event.wand}</h6>
 
-        <h6>{event.patronus}</h6>
-        <h6>{affiliation}</h6> 
-      </div>
-    )
-    return characterBio;
-  }
+          <h6>{event.patronus}</h6>
+          <h6>{affiliation}</h6> 
+        </div>
+      )
+      return characterBio;
+    }
 render() {
   return(
     <Router>
@@ -178,11 +178,7 @@ render() {
         </header>
         
         <Route path = "/" exact component={Home} />
-        <Route path="/Chart" 
-        render={(props) => {
-          return <Chart {...props} characters={this.state.characters} characterBio={this.state.characterBio} />
-        }}
-        />
+        <Route path="/Chart" exact component={Chart} />
         <Route 
           path="/gryffindor" 
           render={(props) => {
