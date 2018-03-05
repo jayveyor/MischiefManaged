@@ -18,6 +18,9 @@ const Gryffindor = (props) => {
                 // console.log(character)
                 let gryffindor;
                 let characterBio;
+                if (character.house === "Gryffindor") {
+                    gryffindor = (characterBio)
+                
                 characterBio = props.characterBio(character);
                 if (character.house === "Gryffindor" && character.dumbledoresArmy === true) {
                     DACount = DACount + 1;
@@ -30,12 +33,8 @@ const Gryffindor = (props) => {
 
                 gryffindor = (characterBio)
 
-                // console.log(deathEaterCount);
-                console.log(DACount);
-                // console.log(unaffiliatedCount);
-                // console.log(character)
-
-                gryffindor = (characterBio);
+                console.log(DACount);   
+            }
 
             
             return (
