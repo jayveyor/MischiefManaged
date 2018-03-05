@@ -2,48 +2,65 @@ import React from 'react';
 import config from './config';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-// import Chart from './Chart';
-      
+import Chart from './Chart';
 
 
-let deathEaterCount = 0;
-let DACount = 0; 
-let unaffiliatedCount = 0;
-const Gryffindor = (props) => {
-    return (
-            
-            <div>
-        {props.characters.map((character) =>{
-            // console.log(character)
-            let gryffindor;
-           let characterBio;
-           characterBio = props.characterBio(character);
-            if (character.house === "Gryffindor" && character.dumbledoresArmy === true) {
-                DACount = DACount + 1;
-                
-            } else if (character.house === "Gryffindor" && character.deathEater === true) {
-                deathEaterCount = deathEaterCount + 1;
-            } else {
-                unaffiliatedCount = unaffiliatedCount + 1;
-            }
-            
-            gryffindor = (characterBio)
-                
-                // console.log(deathEaterCount);
-                // console.log(DACount);
-                // console.log(unaffiliatedCount);
-                // console.log(character)
 
-            return (
-                <div>
-                    {gryffindor}
-                </div>
-            )
-        })
+
+class Gryffindor extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            deathEaterCount :1,
+            DACount : 1, 
+            unaffiliatedCount : 1,
+            characters: this.props.characters,
+        }
     }
-    
-            </div>
+    componentWillReceiveProps(props) {   
+        let charState = Array.from(props.characters);
+        charState = charState.filter((character) => {
+            return character.house === 'Gryffindor';
+        });
+        
+
+        charState.forEach((char) => {
+
+            
+            if (char.deathEater === true) {
+                this.setState({
+                    deathEaterCount: this.state.deathEaterCount++
+                });
+            }
+            else if (char.dumbledoresArmy === true) {
+                this.setState({
+                    DACount: this.state.DACount++
+                })
+            }
+            else {
+                this.setState({
+                    unaffiliatedCount: this.state.unaffiliatedCount++
+                })
+            }
+
+        });
+
+        this.setState({
+            characters: charState
+        });
+    }
+    render() {
+        return (
+            <div>
+                {this.state.characters.map((character) => {
+                    return (
+                        <div>{this.props.characterBio(character)}</div>
+                    )
+                })}
+                <Chart DACount={this.state.DACount} deathEaterCount={this.state.deathEaterCount} unaffiliatedCount={this.state.unaffiliatedCount} />
+             </div>
         )
+    }
 }
 
 
@@ -77,7 +94,7 @@ const Gryffindor = (props) => {
 //                     </div>
 //                 )
 //             } 
-                    
+
 //         )}
 
 //     </React.Fragment>
