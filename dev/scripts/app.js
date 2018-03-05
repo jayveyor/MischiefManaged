@@ -11,7 +11,7 @@ import Ravenclaw from './ravenclaw.js'
 import Slytherin from './slytherin.js'
 import Hufflepuff from './hufflepuff.js'
 import config from './config';
-import Chart from './Chart';
+// import Chart from './Chart';
 
 
 class Home extends React.Component {
@@ -115,11 +115,11 @@ render() {
           </div>
           <h2>Sort by:</h2>
           <button onClick={this.sortByAff}>Affiliation</button>
-        <button onClick={this.sortByAnces}>Wizarding Ancestry</button> */}
+        <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
         </header>
         
         <Route path = "/" exact component={Home} />
-        <Route path="/Chart" exact component={Chart} />
+        {/* <Route path="/Chart" exact component={Chart} /> */}
         <Route 
           path="/gryffindor" 
           render={(props) => {
