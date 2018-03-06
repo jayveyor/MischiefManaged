@@ -11,7 +11,8 @@ import Ravenclaw from './ravenclaw.js'
 import Slytherin from './slytherin.js'
 import Hufflepuff from './hufflepuff.js'
 import config from './config';
-// import Chart from './Chart';
+import HeaderTabs from './HeaderTabs'
+
 
 
 class Home extends React.Component {
@@ -28,7 +29,27 @@ class Home extends React.Component {
     render() {
       return (
         <div>
-          
+          <main>
+            <div className="instructions">
+              <h1>Mischief Managed</h1>
+            </div>
+            <div className="gryffindor-landing landing">
+              <Link to="/gryffindor"><p>Gryffindor</p></Link>
+              <p className="tagline">Gather info on Gryffindor</p>
+            </div>
+            <div className="hufflepuff-landing landing"> 
+              <Link to="/hufflepuff"><p>Hufflepuff</p></Link>
+              <p className="tagline">Harvest knowledge on Hufflepuff</p>
+            </div>
+            <div className="ravenclaw-landing landing">
+              <Link to="/ravenclaw"><p>Ravenclaw</p></Link>
+              <p className="tagline">Read up on Ravenclaw</p>
+            </div>
+            <div className="slytherin-landing landing">
+              <Link to="/slytherin"><p>Slytherin</p></Link>
+              <p className="tagline">Search the stats in Slytherin</p>
+            </div>
+          </main>
         </div>
       )
     }
@@ -84,7 +105,7 @@ class App extends React.Component {
      
         <h6 className={event.house}>{event.house}</h6>
 
-          <h6>{event.bloodStatus}</h6>
+          {/* <h6>{event.bloodStatus}</h6> */}
           <h6>{event.wand}</h6>
 
         <h6>{event.patronus}</h6>
@@ -99,46 +120,8 @@ class App extends React.Component {
 
 render() {
   return(
-    <Router>
-      <div className="main">
-        <header>
-          {/* <Link to="/">Home</Link> */}
-          <div className="houseTabs">
-            <div className="gryffindor"><Link to="/gryffindor">Gryffindor</Link></div>
-            <div className="hufflepuff"> <Link to="/hufflepuff">Hufflepuff</Link></div>
-            <div className="ravenclaw"><Link to="/ravenclaw">Ravenclaw</Link></div>
-            <div className="slytherin"> <Link to="/slytherin">Slytherin</Link></div>
-          </div>
-        </header>
-        
-        <Route path = "/" exact component={Home} />
-        <Route 
-          path="/gryffindor" 
-          render={(props) => {
-            return <Gryffindor {...props} characterBio={this.characterBio} />
-          }}
-          />
-        <Route
-          path="/ravenclaw"
-          render={(props) => {
-            return <Ravenclaw {...props} characterBio={this.characterBio} />
-          }}
-        />
-        <Route
-          path="/hufflepuff"
-          render={(props) => {
-            return <Hufflepuff {...props} characterBio={this.characterBio} />
-          }}
-        />
-        <Route
-          path="/slytherin"
-          render={(props) => {
-            return <Slytherin {...props} characterBio={this.characterBio} />
-          }}
-        />
-        <Home />
-      </div>
-    </Router>
+      <HeaderTabs />
+
   )
 }
 }
