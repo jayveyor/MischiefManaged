@@ -12,7 +12,6 @@ import Ravenclaw from './ravenclaw.js'
 import Slytherin from './slytherin.js'
 import Hufflepuff from './hufflepuff.js'
 import config from './config';
-import Qs from 'qs'
 // import Chart from './Chart';
 import HeaderTabs from './HeaderTabs'
 
