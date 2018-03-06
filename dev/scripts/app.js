@@ -11,8 +11,9 @@ import Ravenclaw from './ravenclaw.js'
 import Slytherin from './slytherin.js'
 import Hufflepuff from './hufflepuff.js'
 import config from './config';
+import Qs from 'qs'
+// import Chart from './Chart';
 import HeaderTabs from './HeaderTabs'
-
 
 
 class Home extends React.Component {
@@ -78,7 +79,6 @@ class App extends React.Component {
     //   });
   }
   characterBio(event) {
-                
     let affiliation;
     // console.log(event);
 
@@ -114,7 +114,6 @@ class App extends React.Component {
         <h2 className="characterName" >{event.name}</h2>
       </div>
     )
-
     return characterBio;
   }
 
@@ -122,7 +121,7 @@ render() {
   return(
     <div>
       <Router>
-        <div className="main">
+        <div>
           <Route path="/" exact component={Home} />
 
           <Route
@@ -156,7 +155,6 @@ render() {
       </Router>
 
     </div>
-
   )
 }
 }
