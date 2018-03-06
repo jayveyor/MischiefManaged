@@ -8,7 +8,7 @@ import Ravenclaw from './Ravenclaw';
 import Slytherin from './Slytherin';
 
 
-class Chart extends React.Component {
+class Ancestry extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -19,12 +19,12 @@ class Chart extends React.Component {
     componentWillReceiveProps(props) {
         this.setState({
             chartData: {
-                labels: [`Death Eater`, `Dumbledore's Army`, `Unaffiliated`],
+                labels: [`Wizarding Ancestry`, `Muggle Ancestry`, `Mixed Ancestry`, `Ancestry Unknown`],
                 datasets: [
                     {
                         label: 'Magic Stuff',
-                        data: [props.deathEaterCount, props.DACount, props.unaffiliatedCount],
-                        backgroundColor: ['purple', 'orange', 'pink']
+                        data: [props.purebloodCount, props.muggleCount, props.mixedCount, props.unknownCount],
+                        backgroundColor: ['green', 'blue', 'red', 'yellow']
                     }
                 ]
             }            
@@ -44,4 +44,4 @@ class Chart extends React.Component {
 }
 
 
-export default Chart;
+export default Ancestry;

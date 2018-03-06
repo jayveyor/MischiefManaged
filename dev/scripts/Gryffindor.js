@@ -3,21 +3,68 @@ import config from './config';
 import axios from 'axios';
 import Qs from 'qs';
 import { Link } from 'react-router-dom';
-import Chart from './Chart';
+import Affiliation from './Affiliation';
+import Ancestry from './Ancestry';
+
 
 class Gryffindor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             deathEaterCount :0,
-            DACount : 0, 
-            unaffiliatedCount : 0,
-            characters: this.props.characters,
+            DACount: 0, 
+            unaffiliatedCount: 0,
+            muggleCount: 0,
+            mixedCount: 0,
+            purebloodCount: 0,
+            unknownCount: 0,
+            characters: [],
+            showChart: 'none',
         }
+        this.hideChart = this.hideChart.bind(this);
+        this.sortByAff = this.sortByAff.bind(this);
+        this.sortByAnces = this.sortByAnces.bind(this);
+        this.filterCharacters = this.filterCharacters.bind(this);
     }
+<<<<<<< HEAD
     componentWillReceiveProps(props) {
 
         let charState = Array.from(props.characters);
+=======
+
+    componentDidMount() {
+        axios.get(`${config.HPapiURL}`, {
+            params: {
+                key: config.HPapiKey,
+                school: config.school,
+            }
+        })
+            .then(({ data }) => {
+
+                this.setState({
+                    characters: data
+                });
+                this.filterCharacters();
+            });
+    }
+    hideChart() {
+        this.setState({
+            showChart: 'none'
+        });
+    }
+    sortByAff() {
+        this.setState({
+            showChart: 'Affiliation'
+        });
+    }
+    sortByAnces() {
+        this.setState({
+            showChart: 'Ancestry'
+        });
+    }
+    filterCharacters() {   
+        let charState = this.state.characters;
+>>>>>>> 237d96dd0882436ccb5b2a44ff53e6c10b9dfffb
         charState = charState.filter((character) => {
             return character.house === 'Gryffindor';
         });
@@ -25,22 +72,44 @@ class Gryffindor extends React.Component {
 
         charState.forEach((char) => {
 
+<<<<<<< HEAD
+=======
+            
+            if (char.bloodStatus === 'pure-blood') {
+                this.setState((prevState, props) => {
+                    return { purebloodCount: prevState.purebloodCount + 1 }
+                });
+            }
+            else if (char.bloodStatus === 'muggle-born') {
+                this.setState((prevState, props) => {
+                    return { muggleCount: prevState.muggleCount + 1 }
+                });
+            }
+            else if (char.bloodStatus === 'half-blood') {
+                this.setState((prevState, props) => {
+                    return { mixedCount: prevState.mixedCount + 1 }
+                });
+            } else {
+                this.setState((prevState, props) => {
+                    return { unknownCount: prevState.unknownCount + 1 }
+                });
+            }
+>>>>>>> 237d96dd0882436ccb5b2a44ff53e6c10b9dfffb
 
             if (char.deathEater === true) {
-                this.setState({
-                    deathEaterCount: this.state.deathEaterCount++
+                this.setState((prevState, props) => {
+                    return { deathEaterCount: prevState.deathEaterCount + 1 }
                 });
             }
             else if (char.dumbledoresArmy === true) {
-                this.setState({
-                    DACount: this.state.DACount++
-                })
+                this.setState((prevState, props) => {
+                    return { DACount: prevState.DACount + 1 }
+                });
             }
             else {
-                this.setState({
-                    unaffiliatedCount: this.state.unaffiliatedCount++
-                })
-
+                this.setState((prevState, props) => {
+                    return { unaffiliatedCount: prevState.unaffiliatedCount + 1 }
+                });
             }
 
         });
@@ -50,16 +119,41 @@ class Gryffindor extends React.Component {
         });
      }
     render() {
+        let Chart;
+        if (this.state.showChart === 'Affiliation') {
+            Chart = (<div><div className="hideButton"><button onClick={this.hideChart}>Hide Chart</button></div>
+                <Affiliation DACount={this.state.DACount} deathEaterCount={this.state.deathEaterCount} unaffiliatedCount={this.state.unaffiliatedCount} /></div>
+            )
+        }
+        else if (this.state.showChart === 'Ancestry') {
+            Chart = (<div><div className="hideButton"><button onClick={this.hideChart}>Hide Chart</button></div>
+                <Ancestry purebloodCount={this.state.purebloodCount} muggleCount={this.state.muggleCount} mixedCount={this.state.mixedCount} unknownCount={this.state.unknownCount} /></div>
+            )
+        }
+        else {
+            Chart = (<div></div>)
+        }
         return (
-            <div>
+            <div className="mainBody">
+                <div className="buttons">
+                    <button onClick={this.sortByAff}>Affiliation</button>
+                    <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
+                </div>
+                {Chart}
+                <div className="characterBios">
                 {this.state.characters.map((character) => {
                     return (
                         // charName = this.props.character.name
                         <div>{this.props.characterBio(character)}</div>
                     )
                 })}
+<<<<<<< HEAD
                 <Chart DACount={this.state.DACount} deathEaterCount={this.state.deathEaterCount} unaffiliatedCount={this.state.unaffiliatedCount} />
             </div>
+=======
+                </div>
+             </div>
+>>>>>>> 237d96dd0882436ccb5b2a44ff53e6c10b9dfffb
         )
     }
 }

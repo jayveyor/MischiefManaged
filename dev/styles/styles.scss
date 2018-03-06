@@ -1,6 +1,7 @@
 @import "partials/_normalize.scss";
 @import "partials/_variables.scss";
-@import "components/_frogCard.scss";
+@import "partials/_frogCard.scss";
+@import "partials/_landing.scss";
 
 .gryffindor {
     background-color:$gryff;
@@ -25,26 +26,53 @@ a {
 
 body {
     background: #dadada;
+    font-family: $main-text;
+    font-size: 1.6rem;
+}
+
+canvas {
+    max-height: 400px;
+}
+
+.hideButton {
+    width: 100px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.characterBios {
+    margin:0 auto;
+    width: 95%;
+    height: 100%;
+}
+
+.buttons {
+    margin:0 auto;
+    width:300px;
+    margin-bottom: 50px;
+}
+.buttons :last-child {
+    float:right;
 }
 
 .characterBio {
     .cardContainer {
     float:left;
-    height: 340px;
-    margin: 5px;
+    height: 440px;
+    margin: 0 15px;
     position:relative;
     perspective: 800px;
     transform-style: preserve-3d;
     text-align:center;
-    max-width: 287px;
-    }
+    max-width: 400px;
+}
 }
 
 .characterBio h2 {
     margin: 15px auto;
 }
 .frogCard {
-    height: 270px;
+    height: 370px;
     position:relative;
     z-index:2;
 }
@@ -60,15 +88,20 @@ body {
     position: absolute;
     z-index:4;
     top:30%;
-    width:280px;
+    width:380px;
 }
 
 .characterInfo h6 {
-     color: $oldtan;
+    color: $tan;
 }
 
 .houseTabs {
-width: 100%;
+
+    width: 100%;
+    height:100px;
+    font-family: $heading;
+    width: 100%;
+
 }
 
 .houseTabs div {
@@ -80,4 +113,13 @@ width: 100%;
 
 header h2 {
     margin-top:15px;
+}
+
+footer {
+    clear:both;
+}
+
+footer p {
+    font-size: 1.2rem;
+    text-shadow: none;
 }

@@ -12,7 +12,8 @@ import Ravenclaw from './ravenclaw.js'
 import Slytherin from './slytherin.js'
 import Hufflepuff from './hufflepuff.js'
 import config from './config';
-// import Chart from './Chart';
+import HeaderTabs from './HeaderTabs'
+
 
 
 class Home extends React.Component {
@@ -27,37 +28,56 @@ class Home extends React.Component {
   }
 
 
-  render() {
-    return (
-      <div>
-
-      </div>
-    )
-  }
+    render() {
+      return (
+        <div>
+          <main>
+            <div className="instructions">
+              <h1>Mischief Managed</h1>
+            </div>
+            <div className="gryffindor-landing landing">
+              <Link to="/gryffindor"><p>Gryffindor</p></Link>
+              <p className="tagline">Gather info on Gryffindor</p>
+            </div>
+            <div className="hufflepuff-landing landing"> 
+              <Link to="/hufflepuff"><p>Hufflepuff</p></Link>
+              <p className="tagline">Harvest knowledge on Hufflepuff</p>
+            </div>
+            <div className="ravenclaw-landing landing">
+              <Link to="/ravenclaw"><p>Ravenclaw</p></Link>
+              <p className="tagline">Read up on Ravenclaw</p>
+            </div>
+            <div className="slytherin-landing landing">
+              <Link to="/slytherin"><p>Slytherin</p></Link>
+              <p className="tagline">Search the stats in Slytherin</p>
+            </div>
+          </main>
+        </div>
+      )
+    }
 }
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      characters: [],
+      // characters : [],
     }
     this.characterBio = this.characterBio.bind(this);
   }
   componentDidMount() {
-    axios.get(`${config.HPapiURL}`, {
-      params: {
-        key: config.HPapiKey,
-        school: config.school,
-      }
-    })
-      .then(({ data }) => {
+    // axios.get(`${config.HPapiURL}`, {
+    //   params: {
+    //     key: config.HPapiKey,
+    //     school: config.school,
+    //   }
+    // })
+    //   .then(({ data }) => {
 
-        this.setState({
-          characters: data
-        });
-      });
-    
+    //     this.setState({
+    //       characters: data
+    //     }); 
+    //   });
   }
 
   
@@ -135,52 +155,10 @@ class App extends React.Component {
 
 render() {
   return(
-    <Router>
-      <div className="main">
-        <header>
-          {/* <Link to="/">Home</Link> */}
-          <div className="houseTabs">
-            <div className="gryffindor"><Link to="/gryffindor">Gryffindor</Link></div>
-            <div className="hufflepuff"> <Link to="/hufflepuff">Hufflepuff</Link></div>
-            <div className="ravenclaw"><Link to="/ravenclaw">Ravenclaw</Link></div>
-            <div className="slytherin"> <Link to="/slytherin">Slytherin</Link></div>
-          </div>
-          <h2>Sort by:</h2>
-          <button onClick={this.sortByAff}>Affiliation</button>
-        <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
-        </header>
-        
-        <Route path = "/" exact component={Home} />
-        {/* <Route path="/Chart" exact component={Chart} /> */}
-        <Route 
-          path="/gryffindor" 
-          render={(props) => {
-            return <Gryffindor {...props} characters={this.state.characters} characterBio={this.characterBio} />
-          }}
-          />
-          <Route
-            path="/ravenclaw"
-            render={(props) => {
-              return <Ravenclaw {...props} characters={this.state.characters} characterBio={this.characterBio} />
-            }}
-          />
-          <Route
-            path="/hufflepuff"
-            render={(props) => {
-              return <Hufflepuff {...props} characters={this.state.characters} characterBio={this.characterBio} />
-            }}
-          />
-          <Route
-            path="/slytherin"
-            render={(props) => {
-              return <Slytherin {...props} characters={this.state.characters} characterBio={this.characterBio} />
-            }}
-          />
-          <Home />
-        </div>
-      </Router>
-    )
-  }
+      <HeaderTabs />
+
+  )
+}
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
