@@ -19,12 +19,12 @@ class Ancestry extends React.Component {
     componentWillReceiveProps(props) {
         this.setState({
             chartData: {
-                labels: [`Wizarding Ancestry`, `Muggle Ancestry`, `Mixed Ancestry`],
+                labels: [`Wizarding Ancestry`, `Muggle Ancestry`, `Mixed Ancestry`, `Ancestry Unknown`],
                 datasets: [
                     {
                         label: 'Magic Stuff',
-                        data: [props.purebloodCount, props.muggleCount, props.mixedCount],
-                        backgroundColor: ['green', 'blue', 'red']
+                        data: [props.purebloodCount, props.muggleCount, props.mixedCount, props.unknownCount],
+                        backgroundColor: ['green', 'blue', 'red', 'yellow']
                     }
                 ]
             }            
