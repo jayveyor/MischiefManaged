@@ -1,6 +1,8 @@
 @import "partials/_normalize.scss";
 @import "partials/_variables.scss";
 @import "partials/_landing.scss";
+@import "partials/_frogCard.scss";
+
 .gryffindor {
     background-color:$gryff;
     transition: .2s;
@@ -87,41 +89,43 @@ button {
     float:right;
 }
 
-.characterBio {
-    float:left;
-    height: 440px;
-    margin: 0 15px;
-    position:relative;
-    text-align:center;
-    max-width: 350px;
-}
+//for Frog Card styles see partials folder
 
-.characterBio h2 {
-    margin: 15px auto;
-}
-.frogCard {
-    height: 300px;
-    position:relative;
-    z-index:2;
-}
-.portrait {
-    position: absolute;
-    z-index: 1;
-    height: 170px;
-    left: 28%;
-    top: 22%;
-}
+// .characterBio {
+//     float:left;
+//     height: 440px;
+//     margin: 0 15px;
+//     position:relative;
+//     text-align:center;
+//     max-width: 350px;
+// }
 
-.characterInfo {
-    position: absolute;
-    z-index:4;
-    top:30%;
-    width:320px;
-}
+// .characterBio h2 {
+//     margin: 15px auto;
+// }
+// .frogCard {
+//     height: 300px;
+//     position:relative;
+//     z-index:2;
+// }
+// .portrait {
+//     position: absolute;
+//     z-index: 1;
+//     height: 170px;
+//     left: 28%;
+//     top: 22%;
+// }
 
-.characterInfo h6 {
-    color: $tan;
-}
+// .characterInfo {
+//     position: absolute;
+//     z-index:4;
+//     top:30%;
+//     width:320px;
+// }
+
+// .characterInfo h6 {
+//     color: $tan;
+// }
 
 .houseTabs {
   width: 100%;

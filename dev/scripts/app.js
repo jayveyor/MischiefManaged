@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import { 
+import Qs from 'qs';
+import {
   BrowserRouter as Router,
   Route,
   Link
@@ -11,7 +12,6 @@ import Ravenclaw from './ravenclaw.js'
 import Slytherin from './slytherin.js'
 import Hufflepuff from './hufflepuff.js'
 import config from './config';
-import Qs from 'qs'
 // import Chart from './Chart';
 import HeaderTabs from './HeaderTabs'
 
@@ -20,10 +20,11 @@ class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      characters: []
+      characters: [],
+      // pictures: []
     }
 
- 
+
   }
 
 
@@ -64,8 +65,8 @@ class Home extends React.Component {
     }
 }
 
-class App extends React.Component { 
-  constructor(props){
+class App extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       // characters : [],
@@ -86,43 +87,56 @@ class App extends React.Component {
     //     }); 
     //   });
   }
+
+  
   characterBio(event) {
     let affiliation;
     // console.log(event);
 
-  if (event.dumbledoresArmy === true) {
-    affiliation = (
-      "Dumbledores Army"
-    )
+    if (event.dumbledoresArmy === true) {
+      affiliation = (
+        "Dumbledores Army"
+      )
 
-  } else if (event.deathEater === true){
-    affiliation = (
-      "Death Eater"
-    )
-  } else {
-    affiliation = (
-      "Unaffiliated"
-    )}
+    } else if (event.deathEater === true) {
+      affiliation = (
+        "Death Eater"
+      )
+    } else {
+      affiliation = (
+        "Unaffiliated"
+      )
+    }
     let characterBio;
-    
+
     characterBio = (
       <div className="characterBio">
-        <img className="frogCard" src="./chocolatefrogback.png" alt=""/>
-        <img className="portrait" src="./ginny.jpg" alt="" />
-      <div className="characterInfo">
-     
-        <h6 className={event.house}>{event.house}</h6>
-
-          {/* <h6>{event.bloodStatus}</h6> */}
-          <h6>{event.wand}</h6>
-
-        <h6>{event.patronus}</h6>
-        <h6>{affiliation}</h6> 
-      </div>
+        <div className="cardContainer">
+          <div className="cardFrontContainer">
+            <div className="cardFront">
+              <img className="frogCardFrontBorder" src="./chocolatefrog.png" alt="Chocolate Frog Card border" />
+              <img className="portrait" src={event.thumbnail} alt="" />
+            </div>
+          </div>
+          <div className="cardBackContainer">
+            <div className="cardBack">
+              <img className="frogCardBackBorder" src="./chocolatefrogback.png" alt="" />
+              <div className="characterInfo">
+                <h6 className={event.house}>{event.house}</h6>
+                {/* <h6>{event.bloodStatus}</h6> */}
+                <h6>{event.wand}</h6>
+                <h6>{event.patronus}</h6>
+                <h6>{affiliation}</h6>
+              </div>
+            </div>
+          </div>  
+        </div>
         <h2 className="characterName" >{event.name}</h2>
       </div>
     )
     return characterBio;
+
+    
   }
 
 render() {
@@ -161,7 +175,6 @@ render() {
           </footer>
         </div>
       </Router>
-
     </div>
   )
 }
