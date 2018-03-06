@@ -11,6 +11,7 @@ import Ravenclaw from './ravenclaw.js'
 import Slytherin from './slytherin.js'
 import Hufflepuff from './hufflepuff.js'
 import config from './config';
+import Qs from 'qs'
 // import Chart from './Chart';
 
 
@@ -57,7 +58,6 @@ class App extends React.Component {
     //   });
   }
   characterBio(event) {
-                
     let affiliation;
     // console.log(event);
 
@@ -100,15 +100,15 @@ class App extends React.Component {
 render() {
   return(
     <Router>
-      <div className="main">
+      <div>
         <header>
           {/* <Link to="/">Home</Link> */}
-          <div className="houseTabs">
+          <nav className="houseTabs">
             <div className="gryffindor"><Link to="/gryffindor">Gryffindor</Link></div>
             <div className="hufflepuff"> <Link to="/hufflepuff">Hufflepuff</Link></div>
             <div className="ravenclaw"><Link to="/ravenclaw">Ravenclaw</Link></div>
             <div className="slytherin"> <Link to="/slytherin">Slytherin</Link></div>
-          </div>
+          </nav>
         </header>
         
         <Route path = "/" exact component={Home} />
