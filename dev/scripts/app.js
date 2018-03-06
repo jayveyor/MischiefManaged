@@ -59,23 +59,23 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      characters : [],
+      // characters : [],
     }
     this.characterBio = this.characterBio.bind(this);
   }
   componentDidMount() {
-    axios.get(`${config.HPapiURL}`, {
-      params: {
-        key: config.HPapiKey,
-        school: config.school,
-      }
-    })
-      .then(({ data }) => {
+    // axios.get(`${config.HPapiURL}`, {
+    //   params: {
+    //     key: config.HPapiKey,
+    //     school: config.school,
+    //   }
+    // })
+    //   .then(({ data }) => {
 
-        this.setState({
-          characters: data
-        }); 
-      });
+    //     this.setState({
+    //       characters: data
+    //     }); 
+    //   });
   }
   characterBio(event) {
                 
@@ -121,6 +121,7 @@ class App extends React.Component {
 render() {
   return(
       <HeaderTabs />
+
   )
 }
 }
