@@ -119,6 +119,7 @@ class App extends React.Component {
 
 render() {
   return(
+    <div>
     <Router>
       <div>
         <Route path = "/" exact component={Home} />
