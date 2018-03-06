@@ -62,7 +62,6 @@ class App extends React.Component {
       characters : [],
     }
     this.characterBio = this.characterBio.bind(this);
-    // this.addArmy = this.addArmy.bind(this);
   }
   componentDidMount() {
     axios.get(`${config.HPapiURL}`, {
@@ -75,12 +74,9 @@ class App extends React.Component {
 
         this.setState({
           characters: data
-        });
+        }); 
       });
   }
-  // addArmy(character) {
-   
-  // }
   characterBio(event) {
                 
     let affiliation;
