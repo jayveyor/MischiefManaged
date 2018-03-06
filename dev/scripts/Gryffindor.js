@@ -7,6 +7,7 @@ import Chart from './Chart';
 
 
 
+
 class Gryffindor extends React.Component {
     constructor(props) {
         super(props);
@@ -63,42 +64,6 @@ class Gryffindor extends React.Component {
     }
 }
 
-
-// if (character.dumbledoresArmy === true) {
-//     // console.log(`I am good`);
-//     DACount = DACount + 1;
-// } else if (character.deathEater === true) {
-//     // console.log(`I am evil`);
-//     deathEaterCount = deathEaterCount + 1;
-// } else {
-//     // console.log(`unaffiliated`)
-//     unaffiliatedCount = unaffiliatedCount + 1;
-// }
-
-
-// const Gryffindor = (props) => {
-
-//     const gryffinStudents = props.characters.map((character) => {
-//         if (character.house === "Gryffindor") {
-//             return character;
-//         }
-//     })
-//     return (
-//         <React.Fragment>
-//             {gryffinStudents.map((character) => {
-//                 characterBio = props.characterBio(character);
-//                 console.log(character)
-//                 return (
-//                     <div>
-//                         {characterBio}
-//                     </div>
-//                 )
-//             } 
-
-//         )}
-
-//     </React.Fragment>
-//     )};
 
 
 export default Gryffindor

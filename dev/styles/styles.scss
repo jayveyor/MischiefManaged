@@ -1,5 +1,6 @@
 @import "partials/_normalize.scss";
 @import "partials/_variables.scss";
+@import "partials/_landing.scss";
 .gryffindor {
     background-color:$gryff;
 }
@@ -23,6 +24,8 @@ a {
 
 body {
     background: #dadada;
+    font-family: $main-text;
+    font-size: 1.6rem;
 }
 
 .characterBio {
@@ -58,11 +61,12 @@ body {
 }
 
 .characterInfo h6 {
-     color: $tan;
+    color: $tan;
 }
 
 .houseTabs {
-width: 100%;
+    font-family: $heading;
+    width: 100%;
 }
 
 .houseTabs div {
@@ -74,4 +78,13 @@ width: 100%;
 
 header h2 {
     margin-top:15px;
+}
+
+footer {
+    clear:both;
+}
+
+footer p {
+    font-size: 1.2rem;
+    text-shadow: none;
 }
