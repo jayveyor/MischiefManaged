@@ -15,6 +15,7 @@ class Ravenclaw extends React.Component {
             muggleCount: 0,
             mixedCount: 0,
             purebloodCount: 0,
+            unknownCount: 0,
             characters: this.props.characters,
             showChart: 'none',
         }
@@ -57,9 +58,13 @@ class Ravenclaw extends React.Component {
                     return { muggleCount: prevState.muggleCount + 1 }
                 });
             }
-            else {
+            else if (char.bloodStatus === 'half-blood') {
                 this.setState((prevState, props) => {
                     return { mixedCount: prevState.mixedCount + 1 }
+                });
+            } else {
+                this.setState((prevState, props) => {
+                    return { unknownCount: prevState.unknownCount + 1 }
                 });
             }
             if (char.deathEater === true) {
@@ -91,7 +96,7 @@ class Ravenclaw extends React.Component {
             Chart = (<Affiliation DACount={this.state.DACount} deathEaterCount={this.state.deathEaterCount} unaffiliatedCount={this.state.unaffiliatedCount} />)
         }
         else if (this.state.showChart === 'Ancestry') {
-            Chart = (<Ancestry purebloodCount={this.state.purebloodCount} muggleCount={this.state.muggleCount} mixedCount={this.state.mixedCount} />)
+            Chart = (<Ancestry purebloodCount={this.state.purebloodCount} muggleCount={this.state.muggleCount} mixedCount={this.state.mixedCount} unknownCount={this.state.unknownCount}/>)
         }
         else {
             Chart = (<div></div>)

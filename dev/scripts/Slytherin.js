@@ -14,6 +14,7 @@ class Slytherin extends React.Component {
             unaffiliatedCount: 0,
             muggleCount: 0,
             mixedCount: 0,
+            unknownCount: 0,
             purebloodCount: 0,
             characters: this.props.characters,
             showChart: 'none',
@@ -56,9 +57,13 @@ class Slytherin extends React.Component {
                     return { muggleCount: prevState.muggleCount + 1 }
                 });
             }
-            else {
+            else if (char.bloodStatus === 'half-blood') {
                 this.setState((prevState, props) => {
                     return { mixedCount: prevState.mixedCount + 1 }
+                });
+            } else {
+                this.setState((prevState, props) => {
+                    return { unknownCount: prevState.unknownCount + 1 }
                 });
             }
 
@@ -91,7 +96,7 @@ class Slytherin extends React.Component {
             Chart = (<Affiliation DACount={this.state.DACount} deathEaterCount={this.state.deathEaterCount} unaffiliatedCount={this.state.unaffiliatedCount} />)
             }
         else if (this.state.showChart === 'Ancestry') {
-            Chart = (<Ancestry purebloodCount={this.state.purebloodCount} muggleCount={this.state.muggleCount} mixedCount={this.state.mixedCount} />)
+            Chart = (<Ancestry purebloodCount={this.state.purebloodCount} muggleCount={this.state.muggleCount} mixedCount={this.state.mixedCount} unknownCount={this.state.unknownCount} />)
                 }
                 else {
                     Chart = (<div></div>)
