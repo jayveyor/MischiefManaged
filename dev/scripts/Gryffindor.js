@@ -26,11 +26,6 @@ class Gryffindor extends React.Component {
         this.sortByAnces = this.sortByAnces.bind(this);
         this.filterCharacters = this.filterCharacters.bind(this);
     }
-<<<<<<< HEAD
-    componentWillReceiveProps(props) {
-
-        let charState = Array.from(props.characters);
-=======
 
     componentDidMount() {
         axios.get(`${config.HPapiURL}`, {
@@ -64,7 +59,6 @@ class Gryffindor extends React.Component {
     }
     filterCharacters() {   
         let charState = this.state.characters;
->>>>>>> 237d96dd0882436ccb5b2a44ff53e6c10b9dfffb
         charState = charState.filter((character) => {
             return character.house === 'Gryffindor';
         });
@@ -72,8 +66,6 @@ class Gryffindor extends React.Component {
 
         charState.forEach((char) => {
 
-<<<<<<< HEAD
-=======
             
             if (char.bloodStatus === 'pure-blood') {
                 this.setState((prevState, props) => {
@@ -94,7 +86,6 @@ class Gryffindor extends React.Component {
                     return { unknownCount: prevState.unknownCount + 1 }
                 });
             }
->>>>>>> 237d96dd0882436ccb5b2a44ff53e6c10b9dfffb
 
             if (char.deathEater === true) {
                 this.setState((prevState, props) => {
@@ -117,7 +108,7 @@ class Gryffindor extends React.Component {
         this.setState({
             characters: charState
         });
-     }
+    }
     render() {
         let Chart;
         if (this.state.showChart === 'Affiliation') {
@@ -147,13 +138,8 @@ class Gryffindor extends React.Component {
                         <div>{this.props.characterBio(character)}</div>
                     )
                 })}
-<<<<<<< HEAD
-                <Chart DACount={this.state.DACount} deathEaterCount={this.state.deathEaterCount} unaffiliatedCount={this.state.unaffiliatedCount} />
-            </div>
-=======
                 </div>
              </div>
->>>>>>> 237d96dd0882436ccb5b2a44ff53e6c10b9dfffb
         )
     }
 }

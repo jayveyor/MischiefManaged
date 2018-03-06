@@ -130,19 +130,24 @@ class App extends React.Component {
     characterBio = (
       <div className="characterBio">
         <div className="cardContainer">
-          <div className="cardFront">
-            <img className="portrait" src="./ginny.jpg" alt="" />
-          </div>
-          <div className="cardBack">
-            <img className="frogCard" src="./chocolatefrogback.png" alt="" />
-            <div className="characterInfo">
-              <h6 className={event.house}>{event.house}</h6>
-              {/* <h6>{event.bloodStatus}</h6> */}
-              <h6>{event.wand}</h6>
-              <h6>{event.patronus}</h6>
-              <h6>{affiliation}</h6>
+          <div className="cardFrontContainer">
+            <div className="cardFront">
+              <img className="frogCardFrontBorder" src="./chocolatefrog.png" alt="Chocolate Frog Card border" />
+              <img className="portrait" src="./ginny.jpg" alt="" />
             </div>
           </div>
+          <div className="cardBackContainer">
+            <div className="cardBack">
+              <img className="frogCardBackBorder" src="./chocolatefrogback.png" alt="" />
+              <div className="characterInfo">
+                <h6 className={event.house}>{event.house}</h6>
+                {/* <h6>{event.bloodStatus}</h6> */}
+                <h6>{event.wand}</h6>
+                <h6>{event.patronus}</h6>
+                <h6>{affiliation}</h6>
+              </div>
+            </div>
+          </div>  
         </div>
         <h2 className="characterName" >{event.name}</h2>
       </div>
@@ -155,7 +160,41 @@ class App extends React.Component {
 
 render() {
   return(
-      <HeaderTabs />
+    <div>
+      <Router>
+        <div className="main">
+          <Route path="/" exact component={Home} />
+
+          <Route
+            path="/gryffindor"
+            render={(props) => {
+              return <Gryffindor {...props} characters={this.state.characters} characterBio={this.characterBio} />
+            }}
+          />
+          <Route
+            path="/ravenclaw"
+            render={(props) => {
+              return <Ravenclaw {...props} characters={this.state.characters} characterBio={this.characterBio} />
+            }}
+          />
+          <Route
+            path="/hufflepuff"
+            render={(props) => {
+              return <Hufflepuff {...props} characters={this.state.characters} characterBio={this.characterBio} />
+            }}
+          />
+          <Route
+            path="/slytherin"
+            render={(props) => {
+              return <Slytherin {...props} characters={this.state.characters} characterBio={this.characterBio} />
+            }}
+          />
+          <footer>
+            <p>Credit to: Gian Paolo Delfino for the icon. Kristen Spencer for the HarryPotterAPI. Created by Jay Button, Natalie Van Dine and Meagan Moore</p>
+          </footer>
+        </div>
+      </Router>
+    </div>
 
   )
 }
