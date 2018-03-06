@@ -1,6 +1,7 @@
 import React from 'react';
 import config from './config';
 import axios from 'axios';
+import Qs from 'qs';
 import { Link } from 'react-router-dom';
 import Affiliation from './Affiliation';
 import Ancestry from './Ancestry';
@@ -15,16 +16,19 @@ class Slytherin extends React.Component {
             unaffiliatedCount: 0,
             muggleCount: 0,
             mixedCount: 0,
-            unknownCount: 0,
             purebloodCount: 0,
+            unknownCount: 0,
             characters: [],
             showChart: 'none',
+            picture: '',
         }
-        this.hideChart=this.hideChart.bind(this);
-        this.sortByAff=this.sortByAff.bind(this);
-        this.sortByAnces=this.sortByAnces.bind(this);
+        this.hideChart = this.hideChart.bind(this);
+        this.sortByAff = this.sortByAff.bind(this);
+        this.sortByAnces = this.sortByAnces.bind(this);
         this.filterCharacters = this.filterCharacters.bind(this);
+
     }
+
     componentDidMount() {
         axios.get(`${config.HPapiURL}`, {
             params: {
@@ -33,18 +37,19 @@ class Slytherin extends React.Component {
             }
         })
             .then(({ data }) => {
-
+                // console.log(data);
                 this.setState({
                     characters: data
                 });
                 this.filterCharacters();
             });
     }
-    hideChart () {
+    hideChart() {
         this.setState({
             showChart: 'none'
-        }); 
+        });
     }
+
     sortByAff() {
         this.setState({
             showChart: 'Affiliation'
@@ -55,6 +60,8 @@ class Slytherin extends React.Component {
             showChart: 'Ancestry'
         });
     }
+
+
     filterCharacters() {
         let charState = this.state.characters;
         charState = charState.filter((character) => {
@@ -62,7 +69,30 @@ class Slytherin extends React.Component {
         });
 
 
+        const images = charState.map((char) => {
+            return axios({
+                method: 'GET',
+                url: 'http://proxy.hackeryou.com',
+                dataResponse: 'json',
+                paramsSerializer: function (params) {
+                    return Qs.stringify(params, { arrayFormat: 'brackets' })
+                },
+                params: {
+                    reqUrl: 'https://harrypotter.wikia.com/api/v1/Articles/Details',
+                    params: {
+                        format: 'json',
+                        titles: char.name,
+                        width: 250,
+                        height: 250,
+                    }
+                }
+            });
+        });
+
+
         charState.forEach((char) => {
+            // console.log(this.state.pictures)
+
             if (char.bloodStatus === 'pure-blood') {
                 this.setState((prevState, props) => {
                     return { purebloodCount: prevState.purebloodCount + 1 }
@@ -96,15 +126,36 @@ class Slytherin extends React.Component {
             else {
                 this.setState((prevState, props) => {
                     return { unaffiliatedCount: prevState.unaffiliatedCount + 1 }
-                }); 
-
+                });
             }
 
         });
 
-        this.setState({
-            characters: charState
-        });
+
+        Promise.all(images)
+            .then((images) => {
+
+                images = images.map(el => el.data.items)
+                    .map(el => {
+                        let result = {};
+                        for (let key in el) {
+                            result = el[key];
+                        }
+                        return result;
+                    });
+
+                images.forEach((el, i) => {
+                    //take each element and match it with the state of the character
+                    //And then add the images
+                    charState[i].thumbnail = el.thumbnail
+                })
+                this.setState({
+                    characters: charState
+                });
+            });
+
+
+
     }
     render() {
         let Chart;
@@ -118,9 +169,9 @@ class Slytherin extends React.Component {
                 <Ancestry purebloodCount={this.state.purebloodCount} muggleCount={this.state.muggleCount} mixedCount={this.state.mixedCount} unknownCount={this.state.unknownCount} /></div>
             )
         }
-                else {
-                    Chart = (<div></div>)
-                }
+        else {
+            Chart = (<div></div>)
+        }
         return (
             <div className="mainBody">
                 <HeaderTabs />
@@ -131,7 +182,9 @@ class Slytherin extends React.Component {
                 {Chart}
                 <div className="characterBios">
                     {this.state.characters.map((character) => {
+
                         return (
+                            // charName = this.props.character.name
                             <div>{this.props.characterBio(character)}</div>
                         )
                     })}
