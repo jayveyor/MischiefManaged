@@ -35,20 +35,28 @@ class Home extends React.Component {
               <h1>Mischief Managed</h1>
             </div>
             <div className="gryffindor-landing landing">
-              <Link to="/gryffindor"><p>Gryffindor</p></Link>
-              <p className="tagline">Gather info on Gryffindor</p>
+              <div className="words">
+                <Link to="/gryffindor"><p>Gryffindor <p className="tagline">Gather info on Gryffindor </p> </p></Link>
+                
+              </div>
             </div>
             <div className="hufflepuff-landing landing"> 
-              <Link to="/hufflepuff"><p>Hufflepuff</p></Link>
-              <p className="tagline">Harvest knowledge on Hufflepuff</p>
+              <div className="words">
+                <Link to="/hufflepuff"><p>Hufflepuff <p className="tagline">Harvest facts on Hufflepuff</p></p></Link>
+                
+              </div>
             </div>
             <div className="ravenclaw-landing landing">
-              <Link to="/ravenclaw"><p>Ravenclaw</p></Link>
-              <p className="tagline">Read up on Ravenclaw</p>
+              <div className="words">
+                <Link to="/ravenclaw"><p>Ravenclaw <p className="tagline">Read up on Ravenclaw</p></p></Link>
+                
+              </div>
             </div>
             <div className="slytherin-landing landing">
-              <Link to="/slytherin"><p>Slytherin</p></Link>
-              <p className="tagline">Search the stats in Slytherin</p>
+              <div className="words">
+                <Link to="/slytherin"><p>Slytherin <p className="tagline">Search the stats in Slytherin</p></p></Link>
+                
+              </div>
             </div>
           </main>
         </div>
