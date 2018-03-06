@@ -81,33 +81,9 @@ class App extends React.Component {
   }
 
   
-  characterBio(event) {
+  characterBio(event, picture) {
 
-    axios({
-      method: 'GET',
-      url: 'http://proxy.hackeryou.com',
-      dataResponse: 'json',
-      paramsSerializer: function (params) {
-        return Qs.stringify(params, { arrayFormat: 'brackets' })
-      },
-      params: {
-        reqUrl: 'https://harrypotter.wikia.com/api/v1/Articles/Details',
-        params: {
-          format: 'json',
-          titles: event.name,
-          width: 300,
-          height: 300,
-        }
-      }
-    })
-      .then(({ data }) => {
-        console.log(data);
-        // this.setState({
-        //   // pictures: data
-        // });
-      }
-      );  
-
+    console.log(picture);
     let affiliation;
     // console.log(event);
 
@@ -133,7 +109,7 @@ class App extends React.Component {
           <div className="cardFrontContainer">
             <div className="cardFront">
               <img className="frogCardFrontBorder" src="./chocolatefrog.png" alt="Chocolate Frog Card border" />
-              <img className="portrait" src="./ginny.jpg" alt="" />
+              <img className="portrait" src={picture} alt="" />
             </div>
           </div>
           <div className="cardBackContainer">
@@ -194,10 +170,6 @@ render() {
           </footer>
         </div>
       </Router>
-<<<<<<< HEAD
-=======
-
->>>>>>> f7777158a3eb7cacffce02c7a2f4509fb2cda465
     </div>
 
   )

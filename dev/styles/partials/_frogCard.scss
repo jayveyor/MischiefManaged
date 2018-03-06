@@ -1,91 +1,79 @@
 .characterBio {
-    max-width: 400px;
-    margin: 15px;
-    .cardContainer {
-        float: left;
-        height: 440px;
-        margin: 0 15px;
-        position: relative;
-        perspective: 800px;
-        transform-style: preserve-3d;
-        text-align: center;
-        max-width: 400px;
-        .cardFront,
-        .cardBack {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            transition: all 0.4s ease-in-out;
-            backface-visibility: hidden;
-            text-align: center;
-        }
-    }
+    width: 350px;
+    height: 440px;
+    // margin: 15px;
+    float: left;
+    border: 1px solid red;
+    position: relative;
 }
 
 .characterBio h2 {
     margin: 15px auto;
 }
-
-.frogCard {
-    height: 370px;
+.cardContainer {
+    height: 300px;
+    max-width: 350px;
+    margin: 0 15px;
     position: relative;
+    perspective: 800px;
+    transform-style: preserve-3d;
+}
+
+.cardFrontContainer,
+.cardBackContainer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: all 0.4s ease-in-out;
+    backface-visibility: hidden;
+}
+    
+.cardBackContainer {
+    transform: rotateY(180deg);
+}
+
+.cardFront,
+.cardBack {
+    height: 300px;
+    position: relative;
+}
+
+.frogCardFrontBorder {
+    height: 100%;
+    position: absolute;
     z-index: 2;
 }
 
 .portrait {
     position: absolute;
     z-index: 1;
-    height: 170px;
-    left: 28%;
-    top: 22%;
+    height: 200px;
+    left: 25%;
+    top: 28%;
+}
+
+.frogCardBackBorder {
+    height: 300px;
+    position: absolute;
 }
 
 .characterInfo {
+    text-align: center;
     position: absolute;
     z-index: 4;
     top: 30%;
-    width: 380px;
+    width: 320px;
 }
 
 .characterInfo h6 {
     color: $tan;
 }
 
+.cardContainer:hover .cardBackContainer {
+    transform: rotateY(0);
+}
 
-// OKAY GO
+.cardContainer:hover .cardFrontContainer {
+    transform: rotateY(-180deg);
+}
 
-
-// .flashcard p {
-//     letter-spacing: 1px;
-// }
-
-
-// // .cardFront {
-// //     background: white;
-// //     display: flex;
-// //     justify-content: center;
-// //     align-items: center;
-// // }
-
-// .toggled {
-//     background: rgb(185, 184, 184);
-// }
-
-// .cardBack {
-//     background: rgb(236, 234, 248);
-//     transform: rotateY(180deg);
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     padding: 10px;
-// }
-
-// .flashcard:hover .cardBack,
-// .flashcard:focus .cardBack {
-//     transform: rotateY(0);
-// }
-
-// .flashcard:hover .cardFront,
-// .flashcard:focus .cardFront {
-//     transform: rotateY(-180deg);
-// }

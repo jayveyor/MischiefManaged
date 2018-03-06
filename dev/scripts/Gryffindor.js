@@ -21,11 +21,13 @@ class Gryffindor extends React.Component {
             unknownCount: 0,
             characters: [],
             showChart: 'none',
+            picture: '',
         }
         this.hideChart = this.hideChart.bind(this);
         this.sortByAff = this.sortByAff.bind(this);
         this.sortByAnces = this.sortByAnces.bind(this);
         this.filterCharacters = this.filterCharacters.bind(this);
+        
     }
 
     componentDidMount() {
@@ -36,7 +38,7 @@ class Gryffindor extends React.Component {
             }
         })
             .then(({ data }) => {
-
+                // console.log(data);
                 this.setState({
                     characters: data
                 });
@@ -48,6 +50,7 @@ class Gryffindor extends React.Component {
             showChart: 'none'
         });
     }
+    
     sortByAff() {
         this.setState({
             showChart: 'Affiliation'
@@ -58,6 +61,8 @@ class Gryffindor extends React.Component {
             showChart: 'Ancestry'
         });
     }
+    
+
     filterCharacters() {   
         let charState = this.state.characters;
         charState = charState.filter((character) => {
@@ -67,6 +72,40 @@ class Gryffindor extends React.Component {
 
         charState.forEach((char) => {
 
+            
+                axios({
+                    method: 'GET',
+                    url: 'http://proxy.hackeryou.com',
+                    dataResponse: 'json',
+                    paramsSerializer: function (params) {
+                        return Qs.stringify(params, { arrayFormat: 'brackets' })
+                    },
+                    params: {
+                        reqUrl: 'https://harrypotter.wikia.com/api/v1/Articles/Details',
+                        params: {
+                            format: 'json',
+                            titles: char.name,
+                            width: 250,
+                            height: 250,
+                        }
+                    }
+                })
+                    .then(({ data }) => {
+                        // console.log(data);
+            
+                        for (let key in data.items) {
+                            console.log(data.items[key].thumbnail)
+                            let thumbnailPic = data.items[key].thumbnail
+                            // console.log(thumbnailPic)
+                            this.setState ({
+                                picture: thumbnailPic
+                            })
+                        }
+                    }
+                    );
+                    // console.log(this.state.pictures)
+                
+            
             
             if (char.bloodStatus === 'pure-blood') {
                 this.setState((prevState, props) => {
@@ -135,13 +174,15 @@ class Gryffindor extends React.Component {
                 {Chart}
                 <div className="characterBios">
                 {this.state.characters.map((character) => {
+
+                    let picture = this.state.picture
                     return (
                         // charName = this.props.character.name
-                        <div>{this.props.characterBio(character)}</div>
+                        <div>{this.props.characterBio(character, picture)}</div>
                     )
                 })}
                 </div>
-             </div>
+            </div>
         )
     }
 }
