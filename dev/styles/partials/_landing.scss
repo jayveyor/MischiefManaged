@@ -8,18 +8,21 @@
     width:50%;
     float:left;
     text-align: center;
+    background-size:cover;
+    background-position: center;
 }
 
 p {
-    margin-top:15%;
+    margin-top:20%;
     font-size: 2.5rem;
     // text-shadow: 1px 1px 1px #8d8d8d;
-    color:black;
+    color:#dadada;
 }
 
 p.tagline {
+    margin:0;
     font-size: 2rem;
-    color: #1a1a1a
+    color: #dadada;
 }
 
 .instructions {
@@ -30,17 +33,25 @@ p.tagline {
 }
 
 .gryffindor-landing {
-    background: $gryff;
+    background-image: 
+        linear-gradient(rgba(155, 10, 24, 0.4), rgba(155, 10, 24, 0.4)),
+        url(../../lion.jpg);
 }
 
 .hufflepuff-landing {
-    background: $yellow;
+    background-image: 
+        linear-gradient(rgba(252, 192, 56, 0.4), rgba(252, 192, 56, 0.4)),
+        url(../../badger.jpg);
 }
 
 .ravenclaw-landing {
-    background: $raven;
+    background-image: 
+        linear-gradient(rgba(45, 66, 142, 0.4), rgba(45, 66, 142, 0.4)),
+        url(../../raven.jpg);
 }
 
 .slytherin-landing {
-    background: $green;
+    background-image: 
+        linear-gradient(rgba(16, 107, 79, 0.4), rgba(16, 107, 79, 0.4)),
+        url(../../serpent.jpeg);
 }
