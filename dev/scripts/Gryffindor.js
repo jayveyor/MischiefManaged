@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Affiliation from './Affiliation';
 import Ancestry from './Ancestry';
+import HeaderTabs from './HeaderTabs';
 
 
 class Gryffindor extends React.Component {
@@ -125,6 +126,7 @@ class Gryffindor extends React.Component {
         }
         return (
             <div className="mainBody">
+                <HeaderTabs />
                 <div className="buttons">
                     <button onClick={this.sortByAff}>Affiliation</button>
                     <button onClick={this.sortByAnces}>Wizarding Ancestry</button>

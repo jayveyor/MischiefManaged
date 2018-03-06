@@ -120,36 +120,41 @@ class App extends React.Component {
 render() {
   return(
     <div>
-    <Router>
-      <div>
-        <Route path = "/" exact component={Home} />
-        <Route 
-          path="/gryffindor" 
-          render={(props) => {
-            return <Gryffindor {...props} characterBio={this.characterBio} />
-          }}
+      <Router>
+        <div>
+          <Route path="/" exact component={Home} />
+
+          <Route
+            path="/gryffindor"
+            render={(props) => {
+              return <Gryffindor {...props} characters={this.state.characters} characterBio={this.characterBio} />
+            }}
           />
-        <Route
-          path="/ravenclaw"
-          render={(props) => {
-            return <Ravenclaw {...props} characterBio={this.characterBio} />
-          }}
-        />
-        <Route
-          path="/hufflepuff"
-          render={(props) => {
-            return <Hufflepuff {...props} characterBio={this.characterBio} />
-          }}
-        />
-        <Route
-          path="/slytherin"
-          render={(props) => {
-            return <Slytherin {...props} characterBio={this.characterBio} />
-          }}
-        />
-      </div>
-    </Router>
-    </div> 
+          <Route
+            path="/ravenclaw"
+            render={(props) => {
+              return <Ravenclaw {...props} characters={this.state.characters} characterBio={this.characterBio} />
+            }}
+          />
+          <Route
+            path="/hufflepuff"
+            render={(props) => {
+              return <Hufflepuff {...props} characters={this.state.characters} characterBio={this.characterBio} />
+            }}
+          />
+          <Route
+            path="/slytherin"
+            render={(props) => {
+              return <Slytherin {...props} characters={this.state.characters} characterBio={this.characterBio} />
+            }}
+          />
+          <footer>
+            <p>Credit to: Gian Paolo Delfino for the icon. Kristen Spencer for the HarryPotterAPI. Created by Jay Button, Natalie Van Dine and Meagan Moore</p>
+          </footer>
+        </div>
+      </Router>
+
+    </div>
   )
 }
 }
