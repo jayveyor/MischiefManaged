@@ -194,6 +194,10 @@ render() {
           </footer>
         </div>
       </Router>
+<<<<<<< HEAD
+=======
+
+>>>>>>> f7777158a3eb7cacffce02c7a2f4509fb2cda465
     </div>
 
   )

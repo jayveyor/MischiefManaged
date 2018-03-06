@@ -13,17 +13,19 @@ import Hufflepuff from './hufflepuff.js'
 class HeaderTabs extends React.Component {
     render() {
         return (
-            <header>
-                <div className="houseTabs">
-                    <div className="gryffindor"><Link to="/gryffindor">Gryffindor</Link></div>
-                    <div className="hufflepuff"> <Link to="/hufflepuff">Hufflepuff</Link></div>
-                    <div className="ravenclaw"><Link to="/ravenclaw">Ravenclaw</Link></div>
-                    <div className="slytherin"> <Link to="/slytherin">Slytherin</Link></div>
-                </div>
-                <button onClick={this.sortByAff}>Affiliation</button>
-                <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
-            </header>
+            <div>
+                <header>
+                    <div className="houseTabs">
+                        <div className="gryffindor"><Link to="/gryffindor">Gryffindor</Link></div>
+                        <div className="hufflepuff"> <Link to="/hufflepuff">Hufflepuff</Link></div>
+                        <div className="ravenclaw"><Link to="/ravenclaw">Ravenclaw</Link></div>
+                        <div className="slytherin"> <Link to="/slytherin">Slytherin</Link></div>
+                    </div>
+                </header>
+            </div>
         )
     }
 }
+
+export default HeaderTabs
 
