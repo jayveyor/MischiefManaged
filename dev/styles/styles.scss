@@ -5,18 +5,40 @@
 
 .gryffindor {
     background-color:$gryff;
+    transition: .2s;
+}
+
+.gryffindor:hover,
+.gryffindor:focus {
+    background-color:darken( $gryff, 10%)
 }
 
 .hufflepuff {
     background-color:$yellow;
+    transition: .2s;
+}
+.hufflepuff:hover,
+.hufflepuff:focus {
+    background-color: darken( $yellow, 20%)
 }
 
 .ravenclaw {
     background-color:$raven;
+    transition: .2s;
+}
+.ravenclaw:hover,
+.ravenclaw:focus {
+    background-color: darken( $raven, 15%)
 }
 
 .slytherin {
     background-color: $green;
+    transition: .2s;
+}
+
+.slytherin:hover,
+.slytherin:focus {
+    background-color: darken( $green, 10%)
 }
 
 a {
@@ -32,24 +54,36 @@ body {
 
 canvas {
     max-height: 400px;
+    max-width: 800px;
+    margin:0 auto;
+    margin-bottom: 50px;
 }
 
 .hideButton {
-    width: 100px;
+    width: 150px;
     margin: 0 auto;
     margin-bottom: 20px;
 }
 
 .characterBios {
     margin:0 auto;
-    width: 80%;
+    width:80%;
     height: 100%;
 }
 
+button {
+    height: 55px;
+    padding: 10px;
+    width: 150px;
+    background-color: black;
+    color: white;
+    line-height: 1.2;
+    border: none;
+}
+
 .buttons {
-    margin:0 auto;
-    width:300px;
-    margin-bottom: 50px;
+    margin:50px auto;
+    width:400px;
 }
 .buttons :last-child {
     float:right;
@@ -57,20 +91,60 @@ canvas {
 
 //for Frog Card styles see partials folder
 
+// .characterBio {
+//     float:left;
+//     height: 440px;
+//     margin: 0 15px;
+//     position:relative;
+//     text-align:center;
+//     max-width: 350px;
+// }
+
+// .characterBio h2 {
+//     margin: 15px auto;
+// }
+// .frogCard {
+//     height: 300px;
+//     position:relative;
+//     z-index:2;
+// }
+// .portrait {
+//     position: absolute;
+//     z-index: 1;
+//     height: 170px;
+//     left: 28%;
+//     top: 22%;
+// }
+
+// .characterInfo {
+//     position: absolute;
+//     z-index:4;
+//     top:30%;
+//     width:320px;
+// }
+
+// .characterInfo h6 {
+//     color: $tan;
+// }
+
 .houseTabs {
-
-    width: 100%;
-    height:100px;
-    font-family: $heading;
-    width: 100%;
-
+  width: 100%;
+  height:100px;
+  font-family: $heading;
 }
 
 .houseTabs div {
     width:25%;
     float:left;
     text-align: center;
-    padding: 20px 0;
+    padding: 30px 0;
+}
+
+.houseTabs a {
+    padding: 30px 25%;
+    color:#f3f3f3;
+    font-size: 2.5rem;
+    text-shadow: 2px 1px rgb(57, 57, 57);
 }
 
 header h2 {
@@ -78,10 +152,70 @@ header h2 {
 }
 
 footer {
-    clear:both;
+    clear: both;
 }
 
 footer p {
     font-size: 1.2rem;
     text-shadow: none;
+    color:black;
+}
+
+@media (max-width: 1325px) {
+.characterBios {
+    width: 90%;
+}
+}
+
+@media (max-width: 1180px) {
+    .characterBios {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1060px) {
+    .characterBios {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1000px) {
+.characterBios {
+    width:80%;
+}
+
+.houseTabs {
+    height: 200px;
+}
+
+.houseTabs div {
+    width: 50%;
+}
+.houseTabs a {
+    padding: 20px 50px;
+}
+}
+
+@media (max-width: 890px) {
+.characterBios {
+    width: 90%;
+}
+}
+
+@media (max-width: 800px) {
+    .characterBios {
+        width: 100%;
+    }
+}
+
+@media (max-width: 715px) {
+    .characterBios {
+        width: 60%;
+    }
+}
+
+@media (max-width: 500px) {
+    .characterBios {
+        width: 80%;
+    }
 }

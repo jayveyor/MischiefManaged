@@ -16,14 +16,14 @@ class Affiliation extends React.Component {
             }
             };
     }
-    componentWillReceiveProps(props) {
+    componentDidMount() {
         this.setState({
             chartData: {
                 labels: [`Death Eater`, `Dumbledore's Army`, `Unaffiliated`],
                 datasets: [
                     {
                         label: 'Magic Stuff',
-                        data: [props.deathEaterCount, props.DACount, props.unaffiliatedCount],
+                        data: [this.props.deathEaterCount, this.props.DACount, this.props.unaffiliatedCount],
                         backgroundColor: ['purple', 'orange', 'pink']
                     }
                 ]
