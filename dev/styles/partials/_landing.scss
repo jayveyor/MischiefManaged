@@ -1,0 +1,46 @@
+.main {
+    position: relative;
+}
+
+.landing {
+    font-family: $heading;
+    height:50vh;
+    width:50%;
+    float:left;
+    text-align: center;
+}
+
+p {
+    margin-top:15%;
+    font-size: 2.5rem;
+    // text-shadow: 1px 1px 1px #8d8d8d;
+    color:black;
+}
+
+p.tagline {
+    font-size: 2rem;
+    color: #1a1a1a
+}
+
+.instructions {
+    font-size: 2rem;
+    position: absolute;
+    top:20%;
+    left:40%;
+}
+
+.gryffindor-landing {
+    background: $gryff;
+}
+
+.hufflepuff-landing {
+    background: $yellow;
+}
+
+.ravenclaw-landing {
+    background: $raven;
+}
+
+.slytherin-landing {
+    background: $green;
+}

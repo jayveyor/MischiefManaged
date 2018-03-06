@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Affiliation from './Affiliation';
 import Ancestry from './Ancestry';
 
+
 class Gryffindor extends React.Component {
     constructor(props) {
         super(props);
