@@ -13,6 +13,7 @@ import Hufflepuff from './hufflepuff.js'
 import config from './config';
 import Qs from 'qs'
 // import Chart from './Chart';
+import HeaderTabs from './HeaderTabs'
 
 
 class Home extends React.Component {
@@ -29,7 +30,27 @@ class Home extends React.Component {
     render() {
       return (
         <div>
-          
+          <main>
+            <div className="instructions">
+              <h1>Mischief Managed</h1>
+            </div>
+            <div className="gryffindor-landing landing">
+              <Link to="/gryffindor"><p>Gryffindor</p></Link>
+              <p className="tagline">Gather info on Gryffindor</p>
+            </div>
+            <div className="hufflepuff-landing landing"> 
+              <Link to="/hufflepuff"><p>Hufflepuff</p></Link>
+              <p className="tagline">Harvest knowledge on Hufflepuff</p>
+            </div>
+            <div className="ravenclaw-landing landing">
+              <Link to="/ravenclaw"><p>Ravenclaw</p></Link>
+              <p className="tagline">Read up on Ravenclaw</p>
+            </div>
+            <div className="slytherin-landing landing">
+              <Link to="/slytherin"><p>Slytherin</p></Link>
+              <p className="tagline">Search the stats in Slytherin</p>
+            </div>
+          </main>
         </div>
       )
     }
@@ -84,7 +105,7 @@ class App extends React.Component {
      
         <h6 className={event.house}>{event.house}</h6>
 
-          <h6>{event.bloodStatus}</h6>
+          {/* <h6>{event.bloodStatus}</h6> */}
           <h6>{event.wand}</h6>
 
         <h6>{event.patronus}</h6>
@@ -93,7 +114,6 @@ class App extends React.Component {
         <h2 className="characterName" >{event.name}</h2>
       </div>
     )
-
     return characterBio;
   }
 
@@ -101,16 +121,6 @@ render() {
   return(
     <Router>
       <div>
-        <header>
-          {/* <Link to="/">Home</Link> */}
-          <nav className="houseTabs">
-            <div className="gryffindor"><Link to="/gryffindor">Gryffindor</Link></div>
-            <div className="hufflepuff"> <Link to="/hufflepuff">Hufflepuff</Link></div>
-            <div className="ravenclaw"><Link to="/ravenclaw">Ravenclaw</Link></div>
-            <div className="slytherin"> <Link to="/slytherin">Slytherin</Link></div>
-          </nav>
-        </header>
-        
         <Route path = "/" exact component={Home} />
         <Route 
           path="/gryffindor" 
@@ -136,9 +146,9 @@ render() {
             return <Slytherin {...props} characterBio={this.characterBio} />
           }}
         />
-        <Home />
       </div>
     </Router>
+    </div> 
   )
 }
 }
