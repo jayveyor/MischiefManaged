@@ -49,6 +49,7 @@ class Hufflepuff extends React.Component {
         this.setState({
             showChart: 'Affiliation'
         });
+
     }
     sortByAnces() {
         this.setState({

@@ -30,6 +30,9 @@ body {
 
 canvas {
     max-height: 400px;
+    max-width: 800px;
+    margin:0 auto;
+    margin-bottom: 50px;
 }
 
 .hideButton {
@@ -40,8 +43,15 @@ canvas {
 
 .characterBios {
     margin:0 auto;
-    width: 95%;
+    width:80%;
     height: 100%;
+}
+
+button {
+    height: 50px;
+    width:100px;
+    background-color:black;
+    color:white;
 }
 
 .buttons {
@@ -59,14 +69,14 @@ canvas {
     margin: 0 15px;
     position:relative;
     text-align:center;
-    max-width: 400px;
+    max-width: 350px;
 }
 
 .characterBio h2 {
     margin: 15px auto;
 }
 .frogCard {
-    height: 370px;
+    height: 300px;
     position:relative;
     z-index:2;
 }
@@ -82,7 +92,7 @@ canvas {
     position: absolute;
     z-index:4;
     top:30%;
-    width:380px;
+    width:320px;
 }
 
 .characterInfo h6 {
@@ -106,15 +116,77 @@ canvas {
     padding: 20px 0;
 }
 
+.houseTabs a {
+    padding: 20px 100px;
+}
+
 header h2 {
     margin-top:15px;
 }
 
 footer {
-    clear:both;
+    clear: both;
 }
 
 footer p {
     font-size: 1.2rem;
     text-shadow: none;
 }
+
+@media (max-width: 1325px) {
+.characterBios {
+    width: 90%;
+}
+}
+
+@media (max-width: 1180px) {
+    .characterBios {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1060px) {
+    .characterBios {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1000px) {
+.characterBios {
+    width:80%;
+}
+
+.houseTabs {
+    height: 150px;
+}
+
+.houseTabs div {
+    width: 50%;
+}
+.houseTabs a {
+    padding: 20px 50px;
+}
+}
+
+@media (max-width: 890px) {
+.characterBios {
+    width: 90%;
+}
+}
+
+@media (max-width: 800px) {
+    .characterBios {
+        width: 100%;
+    }
+}
+
+@media (max-width: 715px) {
+    .characterBios {
+        width: 60%;
+    }
+}
+
+@media (max-width: 500px) {
+    .characterBios {
+        width: 80%;
+    }
