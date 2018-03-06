@@ -1,6 +1,7 @@
 import React from 'react';
 import config from './config';
 import axios from 'axios';
+import Qs from 'qs';
 import { Link } from 'react-router-dom';
 import Chart from './Chart';
 
@@ -8,13 +9,14 @@ class Gryffindor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            deathEaterCount: 0,
-            DACount: 0,
-            unaffiliatedCount: 0,
+            deathEaterCount :0,
+            DACount : 0, 
+            unaffiliatedCount : 0,
             characters: this.props.characters,
         }
     }
     componentWillReceiveProps(props) {
+
         let charState = Array.from(props.characters);
         charState = charState.filter((character) => {
             return character.house === 'Gryffindor';
@@ -52,6 +54,7 @@ class Gryffindor extends React.Component {
             <div>
                 {this.state.characters.map((character) => {
                     return (
+                        // charName = this.props.character.name
                         <div>{this.props.characterBio(character)}</div>
                     )
                 })}
