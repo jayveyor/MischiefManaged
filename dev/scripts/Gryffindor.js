@@ -70,42 +70,29 @@ class Gryffindor extends React.Component {
         });
 
 
-        charState.forEach((char) => {
-
-            
-                axios({
-                    method: 'GET',
-                    url: 'http://proxy.hackeryou.com',
-                    dataResponse: 'json',
-                    paramsSerializer: function (params) {
-                        return Qs.stringify(params, { arrayFormat: 'brackets' })
-                    },
+        const images = charState.map((char) => {
+            return axios({
+                method: 'GET',
+                url: 'http://proxy.hackeryou.com',
+                dataResponse: 'json',
+                paramsSerializer: function (params) {
+                    return Qs.stringify(params, { arrayFormat: 'brackets' })
+                },
+                params: {
+                    reqUrl: 'https://harrypotter.wikia.com/api/v1/Articles/Details',
                     params: {
-                        reqUrl: 'https://harrypotter.wikia.com/api/v1/Articles/Details',
-                        params: {
-                            format: 'json',
-                            titles: char.name,
-                            width: 250,
-                            height: 250,
-                        }
+                        format: 'json',
+                        titles: char.name,
+                        width: 250,
+                        height: 250,
                     }
-                })
-                    .then(({ data }) => {
-                        // console.log(data);
-            
-                        for (let key in data.items) {
-                            console.log(data.items[key].thumbnail)
-                            let thumbnailPic = data.items[key].thumbnail
-                            // console.log(thumbnailPic)
-                            this.setState ({
-                                picture: thumbnailPic
-                            })
-                        }
-                    }
-                    );
+                }
+            });
+        });
+
+ 
+        charState.forEach((char) => {
                     // console.log(this.state.pictures)
-                
-            
             
             if (char.bloodStatus === 'pure-blood') {
                 this.setState((prevState, props) => {
@@ -145,9 +132,31 @@ class Gryffindor extends React.Component {
 
         });
 
-        this.setState({
-            characters: charState
-        });
+
+        Promise.all(images)
+            .then((images) => {
+
+                images = images.map(el => el.data.items)
+                    .map(el => {
+                        let result = {};
+                        for (let key in el) {
+                            result = el[key];
+                        }
+                        return result;
+                    });
+
+                images.forEach((el, i) => {
+                    //take each element and match it with the state of the character
+                    //And then add the images
+                    charState[i].thumbnail = el.thumbnail
+                })
+                this.setState({
+                    characters: charState
+                });
+            });
+
+
+    
     }
     render() {
         let Chart;
@@ -175,10 +184,9 @@ class Gryffindor extends React.Component {
                 <div className="characterBios">
                 {this.state.characters.map((character) => {
 
-                    let picture = this.state.picture
                     return (
                         // charName = this.props.character.name
-                        <div>{this.props.characterBio(character, picture)}</div>
+                        <div>{this.props.characterBio(character)}</div>
                     )
                 })}
                 </div>

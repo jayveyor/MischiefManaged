@@ -81,9 +81,9 @@ class App extends React.Component {
   }
 
   
-  characterBio(event, picture) {
+  characterBio(event) {
 
-    console.log(picture);
+
     let affiliation;
     // console.log(event);
 
@@ -109,7 +109,7 @@ class App extends React.Component {
           <div className="cardFrontContainer">
             <div className="cardFront">
               <img className="frogCardFrontBorder" src="./chocolatefrog.png" alt="Chocolate Frog Card border" />
-              <img className="portrait" src={picture} alt="" />
+              <img className="portrait" src={event.thumbnail} alt="" />
             </div>
           </div>
           <div className="cardBackContainer">
