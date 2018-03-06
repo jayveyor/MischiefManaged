@@ -16,13 +16,28 @@ class Hufflepuff extends React.Component {
             mixedCount: 0,
             unknownCount:0,
             purebloodCount: 0,
-            characters: this.props.characters,
+            characters: [],
             showChart: 'none',
         }
         this.hideChart = this.hideChart.bind(this);
         this.sortByAff = this.sortByAff.bind(this);
         this.sortByAnces = this.sortByAnces.bind(this);
+        this.filterCharacters = this.filterCharacters.bind(this);
+    }
+    componentDidMount() {
+        axios.get(`${config.HPapiURL}`, {
+            params: {
+                key: config.HPapiKey,
+                school: config.school,
+            }
+        })
+            .then(({ data }) => {
 
+                this.setState({
+                    characters: data
+                });
+                this.filterCharacters();
+            });
     }
     hideChart() {
         this.setState({
@@ -39,12 +54,11 @@ class Hufflepuff extends React.Component {
             showChart: 'Ancestry'
         });
     }
-    componentWillReceiveProps(props) {
-        let charState = Array.from(props.characters);
+    filterCharacters() {
+        let charState = this.state.characters;
         charState = charState.filter((character) => {
             return character.house === 'Hufflepuff';
         });
-
 
         charState.forEach((char) => {
 
@@ -93,25 +107,32 @@ class Hufflepuff extends React.Component {
     render() {
         let Chart;
         if (this.state.showChart === 'Affiliation') {
-            Chart = (<Affiliation DACount={this.state.DACount} deathEaterCount={this.state.deathEaterCount} unaffiliatedCount={this.state.unaffiliatedCount} />)
+            Chart = (<div><div className="hideButton"><button onClick={this.hideChart}>Hide Chart</button></div>
+            <Affiliation DACount={this.state.DACount} deathEaterCount={this.state.deathEaterCount} unaffiliatedCount={this.state.unaffiliatedCount} /></div>
+                )
         }
         else if (this.state.showChart === 'Ancestry') {
-            Chart = (<Ancestry purebloodCount={this.state.purebloodCount} muggleCount={this.state.muggleCount} mixedCount={this.state.mixedCount} unknownCount={this.state.unknownCount}/>)
+            Chart = (<div><div className="hideButton"><button onClick={this.hideChart}>Hide Chart</button></div>
+            <Ancestry purebloodCount={this.state.purebloodCount} muggleCount={this.state.muggleCount} mixedCount={this.state.mixedCount} unknownCount={this.state.unknownCount}/></div>
+                )
         }
         else {
             Chart = (<div></div>)
         }
         return (
-            <div>
+            <div className="mainBody">
+                <div className="buttons">
                 <button onClick={this.sortByAff}>Affiliation</button>
                 <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
-                <button onClick={this.hideChart}>Hide Chart</button>
+                </div>
                 {Chart}
-                {this.state.characters.map((character) => {
-                    return (
-                        <div>{this.props.characterBio(character)}</div>
-                    )
-                })}
+                <div className="characterBios">
+                    {this.state.characters.map((character) => {
+                        return (
+                            <div>{this.props.characterBio(character)}</div>
+                        )
+                    })}
+                </div>
             </div>
         )
     }

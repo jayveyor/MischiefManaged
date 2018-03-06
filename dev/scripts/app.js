@@ -38,23 +38,23 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      characters : [],
+      // characters : [],
     }
     this.characterBio = this.characterBio.bind(this);
   }
   componentDidMount() {
-    axios.get(`${config.HPapiURL}`, {
-      params: {
-        key: config.HPapiKey,
-        school: config.school,
-      }
-    })
-      .then(({ data }) => {
+    // axios.get(`${config.HPapiURL}`, {
+    //   params: {
+    //     key: config.HPapiKey,
+    //     school: config.school,
+    //   }
+    // })
+    //   .then(({ data }) => {
 
-        this.setState({
-          characters: data
-        }); 
-      });
+    //     this.setState({
+    //       characters: data
+    //     }); 
+    //   });
   }
   characterBio(event) {
                 
@@ -112,29 +112,28 @@ render() {
         </header>
         
         <Route path = "/" exact component={Home} />
-        {/* <Route path="/Chart" exact component={Chart} /> */}
         <Route 
           path="/gryffindor" 
           render={(props) => {
-            return <Gryffindor {...props} characters={this.state.characters} characterBio={this.characterBio} />
+            return <Gryffindor {...props} characterBio={this.characterBio} />
           }}
           />
         <Route
           path="/ravenclaw"
           render={(props) => {
-            return <Ravenclaw {...props} characters={this.state.characters} characterBio={this.characterBio} />
+            return <Ravenclaw {...props} characterBio={this.characterBio} />
           }}
         />
         <Route
           path="/hufflepuff"
           render={(props) => {
-            return <Hufflepuff {...props} characters={this.state.characters} characterBio={this.characterBio} />
+            return <Hufflepuff {...props} characterBio={this.characterBio} />
           }}
         />
         <Route
           path="/slytherin"
           render={(props) => {
-            return <Slytherin {...props} characters={this.state.characters} characterBio={this.characterBio} />
+            return <Slytherin {...props} characterBio={this.characterBio} />
           }}
         />
         <Home />
