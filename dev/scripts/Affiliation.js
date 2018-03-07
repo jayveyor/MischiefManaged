@@ -14,8 +14,9 @@ class Affiliation extends React.Component {
         this.state = {
             chartData: {
             }
-            };
+        };
     }
+    // For data visualization chart.
     componentDidMount() {
         this.setState({
             chartData: {
