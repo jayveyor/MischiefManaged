@@ -83,8 +83,8 @@ class Gryffindor extends React.Component {
                     params: {
                         format: 'json',
                         titles: char.name,
-                        width: 200,
-                        height: 200,
+                        // width: 200,
+                        // height: 200,
                     }
                 }
             });

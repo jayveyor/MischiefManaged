@@ -3,7 +3,7 @@
     height: 440px;
     // margin: 15px;
     float: left;
-    border: 1px solid red;
+    // border: 1px solid red;
     position: relative;
 }
 
@@ -47,9 +47,11 @@
 .portrait {
     position: absolute;
     z-index: 1;
-    height: 200px;
-    left: 22%;
-    top: 28%;
+    height: 60%;
+    transform: translate(-50%, -38%);
+    left: 50%;
+    top: 50%;
+    
 }
 
 .frogCardBackBorder {
