@@ -37,25 +37,25 @@ class Home extends React.Component {
             </div>
             <div className="gryffindor-landing landing">
               <div className="words">
-                <Link to="/gryffindor"><p>Gryffindor <p className="tagline">Gather info on Gryffindor </p> </p></Link>
+                <Link to="/gryffindor">Gryffindor <p className="tagline">Gather info on Gryffindor</p></Link>
                 
               </div>
             </div>
             <div className="hufflepuff-landing landing"> 
               <div className="words">
-                <Link to="/hufflepuff"><p>Hufflepuff <p className="tagline">Harvest facts on Hufflepuff</p></p></Link>
+                <Link to="/hufflepuff">Hufflepuff <p className="tagline">Harvest facts on Hufflepuff</p></Link>
                 
               </div>
             </div>
             <div className="ravenclaw-landing landing">
               <div className="words">
-                <Link to="/ravenclaw"><p>Ravenclaw <p className="tagline">Read up on Ravenclaw</p></p></Link>
+                <Link to="/ravenclaw">Ravenclaw <p className="tagline">Read up on Ravenclaw</p></Link>
                 
               </div>
             </div>
             <div className="slytherin-landing landing">
               <div className="words">
-                <Link to="/slytherin"><p>Slytherin <p className="tagline">Search the stats in Slytherin</p></p></Link>
+                <Link to="/slytherin">Slytherin <p className="tagline">Search the stats in Slytherin</p></Link>
                 
               </div>
             </div>
