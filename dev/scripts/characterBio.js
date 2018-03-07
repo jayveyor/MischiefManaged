@@ -60,7 +60,7 @@ class CharacterBio extends React.Component {
           </div>
         <div className="cardBackContainer">
             <div className="cardBack">
-                    <img className="frogCardBackBorder" src="./chocolatefrogback.png" alt={`Chocolate Frog Card border containing picture of ${event.name}`} />
+                    <img className="frogCardBackBorder" src="./chocolatefrogback.png" alt={`Chocolate Frog Card border containing information about ${event.name}`} />
                 <div className="characterInfo">
                     <h6 className={event.house}>{event.house}</h6>
                     <h6>{event.wand}</h6>
@@ -76,7 +76,7 @@ class CharacterBio extends React.Component {
     characterBio = (
           <div className="cardBackClicked">
             <div className="cardBack">
-                <img className="frogCardBackBorder" src="./chocolatefrogback.png" alt={`Chocolate Frog Card border containing picture of ${event.name}`}  />
+                <img className="frogCardBackBorder" src="./chocolatefrogback.png" alt={`Chocolate Frog Card border containing information about ${event.name}`}  />
               <div className="characterInfo">
                 <h6 className={event.house}>{event.house}</h6>
                 <h6>{event.wand}</h6>
