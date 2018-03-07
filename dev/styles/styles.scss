@@ -5,7 +5,8 @@
 
 
 .gryffindor {
-    background-color: $gryff;
+    background-color: rgb(190, 152, 91);
+    background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
     border: 7px solid $gryff;
     border-radius: 2px;
     transition: .2s;
@@ -17,7 +18,8 @@
 }
 
 .hufflepuff {
-    background-color: $yellow;
+    background-color: rgb(190, 152, 91);
+    background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
     border: 7px solid $yellow;
     transition: .2s;
     border-radius: 2px;
@@ -29,7 +31,8 @@
 }
 
 .ravenclaw {
-    background-color: $raven;
+    background-color: rgb(190, 152, 91);
+    background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
     border: 7px solid $raven;
     transition: .2s;
     border-radius: 2px;
@@ -41,7 +44,8 @@
 }
 
 .slytherin {
-    background-color: $green;
+    background-color: rgb(190, 152, 91);
+    background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
     border: 7px solid $green;
     transition: .2s;
     border-radius: 2px;
@@ -139,7 +143,6 @@ button {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 600;
-    // text-shadow: 2px 1px rgb(57, 57, 57);
 }
 
 header h2 {
