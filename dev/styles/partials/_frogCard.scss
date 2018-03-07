@@ -28,9 +28,9 @@
     backface-visibility: hidden;
 }
     
-.cardBackContainer {
-    transform: rotateY(180deg);
-}
+// .cardBackContainer {
+//     transform: rotateY(180deg);
+// }
 
 .cardFront,
 .cardBack {
@@ -69,11 +69,11 @@
     color: $tan;
 }
 
-.cardContainer:hover .cardBackContainer {
-    transform: rotateY(0);
-}
+// .cardContainer:hover .cardBackContainer {
+//     transform: rotateY(0);
+// }
 
-.cardContainer:hover .cardFrontContainer {
-    transform: rotateY(-180deg);
-}
+// .cardContainer:hover .cardFrontContainer {
+//     transform: rotateY(-180deg);
+// }
 
