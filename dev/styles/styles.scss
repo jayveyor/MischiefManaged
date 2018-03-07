@@ -5,40 +5,48 @@
 
 .gryffindor {
     background-color:$gryff;
+    border:7px solid $gryff;
+    border-radius: 2px;
     transition: .2s;
 }
 
 .gryffindor:hover,
 .gryffindor:focus {
-    background-color:darken( $gryff, 10%)
+    background-color:$gryff;
 }
 
 .hufflepuff {
-    background-color:$yellow;
+    background-color: $yellow;
+    border:7px solid $yellow;
     transition: .2s;
+    border-radius: 2px;
 }
 .hufflepuff:hover,
 .hufflepuff:focus {
-    background-color: darken( $yellow, 20%)
+    background-color: $yellow
 }
 
 .ravenclaw {
-    background-color:$raven;
+    background-color: $raven;
+    border:7px solid $raven;
     transition: .2s;
+    border-radius: 2px;
 }
 .ravenclaw:hover,
 .ravenclaw:focus {
-    background-color: darken( $raven, 15%)
+    background-color: $raven;
 }
 
 .slytherin {
     background-color: $green;
+    border:7px solid $green;
     transition: .2s;
+    border-radius: 2px;
 }
 
 .slytherin:hover,
 .slytherin:focus {
-    background-color: darken( $green, 10%)
+    background-color: $green;
 }
 
 a {
@@ -47,7 +55,8 @@ a {
 }
 
 body {
-    background: #dadada;
+    background-color: rgb(190, 152, 91);
+    background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
     font-family: $main-text;
     font-size: 1.6rem;
 }
@@ -131,6 +140,7 @@ button {
   width: 100%;
   height:100px;
   font-family: $heading;
+  box-shadow: 0px 0px 30px 5px rgb(36,35,35);
 }
 
 .houseTabs div {
@@ -142,9 +152,8 @@ button {
 
 .houseTabs a {
     padding: 30px 25%;
-    color:#f3f3f3;
+    color:black;
     font-size: 2.5rem;
-    text-shadow: 2px 1px rgb(57, 57, 57);
 }
 
 header h2 {
