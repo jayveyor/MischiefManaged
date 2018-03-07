@@ -50,37 +50,42 @@ class CharacterBio extends React.Component {
     let characterBio;
   if (this.state.cardSide) {
     characterBio = (
-      <div onClick={this.flipCard} className="characterBio">
-        <div className="cardContainer">
+        <div>
           <div className="cardFrontContainer">
             <div className="cardFront">
               <img className="frogCardFrontBorder" src="./chocolatefrog.png" alt={`Chocolate Frog Card border containing picture of ${event.name}`} />
               <img className="portrait" src={event.thumbnail} alt={`picture of ${event.name}`}/>
             </div>
+                <h2 className="characterName" >{event.name}</h2>
           </div>
+        <div className="cardBackContainer">
+            <div className="cardBack">
+                    <img className="frogCardBackBorder" src="./chocolatefrogback.png" alt={`Chocolate Frog Card border containing picture of ${event.name}`} />
+                <div className="characterInfo">
+                    <h6 className={event.house}>{event.house}</h6>
+                    <h6>{event.wand}</h6>
+                    <h6>{event.patronus}</h6>
+                    <h6>{affiliation}</h6>
+                </div>
+            </div>
+            <h2 className="characterName" >{event.name}</h2>
         </div>
-        <h2 className="characterName" >{event.name}</h2>
-      </div>
+        </div>
     )
   } else {
     characterBio = (
-      <div onClick={this.flipCard} className="characterBio">
-        <div className="cardContainer">
-          <div className="cardBackContainer">
+          <div className="cardBackClicked">
             <div className="cardBack">
-              <img className="frogCardBackBorder" src="./chocolatefrogback.png" alt="" />
+                <img className="frogCardBackBorder" src="./chocolatefrogback.png" alt={`Chocolate Frog Card border containing picture of ${event.name}`}  />
               <div className="characterInfo">
                 <h6 className={event.house}>{event.house}</h6>
-                {/* <h6>{event.bloodStatus}</h6> */}
                 <h6>{event.wand}</h6>
                 <h6>{event.patronus}</h6>
                 <h6>{affiliation}</h6>
               </div>
             </div>
+            <h2 className="characterName" >{event.name}</h2>
           </div>
-        </div>
-        <h2 className="characterName" >{event.name}</h2>
-      </div>
     )
   }
     return characterBio;
@@ -90,7 +95,11 @@ class CharacterBio extends React.Component {
     render() {
         return (
             <div>
+                <div onClick={this.flipCard} className="characterBio">
+                    <div className="cardContainer">
                {this.characterBio(this.state.event)}
+                </div>
+            </div>
             </div>
         )
     }
