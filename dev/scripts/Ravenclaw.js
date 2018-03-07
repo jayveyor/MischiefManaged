@@ -182,7 +182,7 @@ class Ravenclaw extends React.Component {
                     <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
                 </div>
                 {Chart}
-                <div className="characterBios">
+                <div className="characterBios clearfix">
                     {this.state.filteredCharacters.map((character) => {
 
                         return (

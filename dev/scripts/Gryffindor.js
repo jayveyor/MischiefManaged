@@ -179,11 +179,12 @@ class Gryffindor extends React.Component {
             <div className="mainBody">
                 <HeaderTabs />
                 <div className="buttons">
+                    <p>Click the buttons for Gryffindor Data Wizualizations</p>
                     <button onClick={this.sortByAff}>Affiliation</button>
                     <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
                 </div>
                 {Chart}
-                <div className="characterBios">
+                <div className="characterBios clearfix">
                     {this.state.filteredCharacters.map((character) => {
 
                     return (
