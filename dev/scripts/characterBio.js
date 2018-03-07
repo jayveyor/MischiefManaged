@@ -6,6 +6,9 @@ import Hufflepuff from './Hufflepuff';
 import Ravenclaw from './Ravenclaw';
 import Slytherin from './Slytherin';
 
+// Create component to pull details from HPAPI about each character, fitered by house
+// Also card animation setup
+
 class CharacterBio extends React.Component {
     constructor(props) {
         super(props);

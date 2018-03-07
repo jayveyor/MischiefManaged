@@ -21,13 +21,10 @@ class Home extends React.Component {
     super();
     this.state = {
       characters: [],
-
     }
-
-
   }
 
-
+    // Create landing page for user to select a house.
     render() {
       return (
         <div>
@@ -72,6 +69,7 @@ class App extends React.Component {
     }
   }
 
+  //This is where the Routes live.
 render() {
   return(
     <div>

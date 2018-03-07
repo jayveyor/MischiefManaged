@@ -8,6 +8,7 @@ import Ancestry from './Ancestry';
 import HeaderTabs from './HeaderTabs';
 import CharacterBio from './characterBio';
 
+// See Gryffindor pseudocode for details
 class Hufflepuff extends React.Component {
     constructor(props) {
         super(props);

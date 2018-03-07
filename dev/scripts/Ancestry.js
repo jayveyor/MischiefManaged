@@ -14,8 +14,9 @@ class Ancestry extends React.Component {
         this.state = {
             chartData: {
             }
-            };
+        };
     }
+    // For data viz chart
     componentDidMount() {
         this.setState({
             chartData: {
