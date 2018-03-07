@@ -178,6 +178,7 @@ class Ravenclaw extends React.Component {
             <div className="mainBody">
                 <HeaderTabs />
                 <div className="buttons">
+                    <p>Click the buttons for Ravenclaw Data Wizualizations</p>
                     <button onClick={this.sortByAff}>Affiliation</button>
                     <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
                 </div>
