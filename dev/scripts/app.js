@@ -12,7 +12,7 @@ import Ravenclaw from './ravenclaw.js'
 import Slytherin from './slytherin.js'
 import Hufflepuff from './hufflepuff.js'
 import config from './config';
-// import Chart from './Chart';
+
 import HeaderTabs from './HeaderTabs'
 
 
@@ -21,7 +21,7 @@ class Home extends React.Component {
     super();
     this.state = {
       characters: [],
-      // pictures: []
+
     }
 
 
@@ -71,20 +71,7 @@ class App extends React.Component {
     this.state = {
     }
   }
-  componentDidMount() {
-    // axios.get(`${config.HPapiURL}`, {
-    //   params: {
-    //     key: config.HPapiKey,
-    //     school: config.school,
-    //   }
-    // })
-    //   .then(({ data }) => {
 
-    //     this.setState({
-    //       characters: data
-    //     }); 
-    //   });
-  }
 render() {
   return(
     <div>

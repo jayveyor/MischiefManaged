@@ -31,7 +31,6 @@ class CharacterBio extends React.Component {
 
     characterBio(event) {
     let affiliation;
-    // console.log(event);
 
     if (event.dumbledoresArmy === true) {
         affiliation = (
@@ -62,13 +61,12 @@ class CharacterBio extends React.Component {
             <div className="cardBack">
                     <img className="frogCardBackBorder" src="../.././assets/chocolatefrogback.png" alt={`Chocolate Frog Card border containing information about ${event.name}`} />
                     <div className="characterInfo">
-                        {/* <h6>House:</h6> */}
                         <h6 className="characterInfoHouse"><span className="cardInfoTitles">House: </span>{event.house}</h6>
-                        {/* <h6>Wand:</h6> */}
+
                         <h6><span className="cardInfoTitles">Wand: </span> {event.wand}</h6>
-                        {/* <h6>Patronus:</h6> */}
+
                         <h6><span className="cardInfoTitles">Patronus: </span> {event.patronus}</h6>
-                        {/* <h6>Affiliation:</h6> */}
+
                         <h6><span className="cardInfoTitles">Affiliation: </span>{affiliation}</h6>
                     </div>
             </div>
@@ -82,13 +80,13 @@ class CharacterBio extends React.Component {
             <div className="cardBack">
                 <img className="frogCardBackBorder" src="../.././assets/chocolatefrogback.png" alt={`Chocolate Frog Card border containing information about ${event.name}`}  />
               <div className="characterInfo">
-              {/* <h6>House:</h6> */}
+
                 <h6 className="characterInfoHouse"><span className="cardInfoTitles">House: </span>{event.house}</h6>
-                {/* <h6>Wand:</h6> */}
+
                 <h6><span className="cardInfoTitles">Wand: </span> {event.wand}</h6>
-                {/* <h6>Patronus:</h6> */}
+
                 <h6><span className="cardInfoTitles">Patronus: </span> {event.patronus}</h6>
-                {/* <h6>Affiliation:</h6> */}
+
                 <h6><span className="cardInfoTitles">Affiliation: </span>{affiliation}</h6>
               </div>
             </div>

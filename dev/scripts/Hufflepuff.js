@@ -84,8 +84,6 @@ class Hufflepuff extends React.Component {
                     params: {
                         format: 'json',
                         titles: char.name,
-                        // width: 200,
-                        // height: 200,
                     }
                 }
             });
@@ -93,7 +91,7 @@ class Hufflepuff extends React.Component {
 
 
         charState.forEach((char) => {
-            // console.log(this.state.pictures)
+
 
             if (char.bloodStatus === 'pure-blood') {
                 this.setState((prevState, props) => {
@@ -187,7 +185,6 @@ class Hufflepuff extends React.Component {
                     {this.state.filteredCharacters.map((character) => {
 
                         return (
-                            // charName = this.props.character.name
                             <CharacterBio character={character} />
                         )
                     })}

@@ -39,7 +39,6 @@ class Slytherin extends React.Component {
             }
         })
             .then(({ data }) => {
-                // console.log(data);
                 this.setState({
                     characters: data
                 });
@@ -84,8 +83,6 @@ class Slytherin extends React.Component {
                     params: {
                         format: 'json',
                         titles: char.name,
-                        width: 200,
-                        height: 200,
                     }
                 }
             });
@@ -93,7 +90,6 @@ class Slytherin extends React.Component {
 
 
         charState.forEach((char) => {
-            // console.log(this.state.pictures)
 
             if (char.bloodStatus === 'pure-blood') {
                 this.setState((prevState, props) => {
@@ -187,7 +183,6 @@ class Slytherin extends React.Component {
                     {this.state.filteredCharacters.map((character) => {
 
                         return (
-                            // charName = this.props.character.name
                             <CharacterBio character={character} />
                         )
                     })}
