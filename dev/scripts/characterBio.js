@@ -53,14 +53,14 @@ class CharacterBio extends React.Component {
         <div>
             <div className="cardFrontContainer">
                 <div className="cardFront">
-                <img className="frogCardFrontBorder" src="./chocolatefrog.png" alt={`Chocolate Frog Card border containing picture of ${event.name}`} />
+                <img className="frogCardFrontBorder" src="../.././assets/chocolatefrog.png" alt={`Chocolate Frog Card border containing picture of ${event.name}`} />
                 <img className="portrait" src={event.thumbnail} alt={`picture of ${event.name}`}/>
                 </div>
                     <h2 className="characterName" >{event.name}</h2>
             </div>
         <div className="cardBackContainer">
             <div className="cardBack">
-                    <img className="frogCardBackBorder" src="./chocolatefrogback.png" alt={`Chocolate Frog Card border containing information about ${event.name}`} />
+                    <img className="frogCardBackBorder" src="../.././assets/chocolatefrogback.png" alt={`Chocolate Frog Card border containing information about ${event.name}`} />
                     <div className="characterInfo">
                         {/* <h6>House:</h6> */}
                         <h6 className="characterInfoHouse"><span className="cardInfoTitles">House: </span>{event.house}</h6>
@@ -80,7 +80,7 @@ class CharacterBio extends React.Component {
     characterBio = (
         <div className="cardBackClicked">
             <div className="cardBack">
-                <img className="frogCardBackBorder" src="./chocolatefrogback.png" alt={`Chocolate Frog Card border containing information about ${event.name}`}  />
+                <img className="frogCardBackBorder" src="../.././assets/chocolatefrogback.png" alt={`Chocolate Frog Card border containing information about ${event.name}`}  />
               <div className="characterInfo">
               {/* <h6>House:</h6> */}
                 <h6 className="characterInfoHouse"><span className="cardInfoTitles">House: </span>{event.house}</h6>

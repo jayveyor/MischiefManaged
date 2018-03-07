@@ -23,7 +23,7 @@ p.tagline {
     transform: translate(-50%, -28%);
     z-index: 99;
     font-family: $heading;
-    background-image: url(../../banner-solid.png);
+    background-image: url(../.././assets/banner-solid.png);
     background-position: center;
     background-repeat: no-repeat;
     height:30%;
@@ -57,7 +57,7 @@ p.tagline {
 .gryffindor-landing {
     background-image: 
         linear-gradient(rgba(155, 10, 24, 0.75), rgba(155, 10, 24, 0.75)),
-        url(../../lion.jpg);
+        url(../.././assets/lion.jpg);
         .words {
             background-color: rgb(190, 152, 91);
             background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
@@ -68,7 +68,7 @@ p.tagline {
 .hufflepuff-landing {
     background-image: 
         linear-gradient(rgba(252, 192, 56, 0.75), rgba(252, 192, 56, 0.75)),
-        url(../../badger.jpg);
+        url(../.././assets/badger.jpg);
         .words {
             background-color: rgb(190, 152, 91);
             background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
@@ -79,7 +79,7 @@ p.tagline {
 .ravenclaw-landing {
     background-image: 
         linear-gradient(rgba(45, 66, 142, 0.75), rgba(45, 66, 142, 0.75)),
-        url(../../raven.jpg);
+        url(../.././assets/raven.jpg);
         .words {
             background-color: rgb(190, 152, 91);
             background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
@@ -90,7 +90,7 @@ p.tagline {
 .slytherin-landing {
     background-image: 
         linear-gradient(rgba(16, 107, 79, 0.75), rgba(16, 107, 79, 0.75)),
-        url(../../serpent.jpeg);
+        url(../.././assets/serpent.jpeg);
         .words {
             background-color: rgb(190, 152, 91);
             background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
