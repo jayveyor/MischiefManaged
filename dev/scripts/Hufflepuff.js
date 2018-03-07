@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import Affiliation from './Affiliation';
 import Ancestry from './Ancestry';
 import HeaderTabs from './HeaderTabs';
+import CharacterBio from './characterBio';
+
 class Hufflepuff extends React.Component {
     constructor(props) {
         super(props);
@@ -20,6 +22,7 @@ class Hufflepuff extends React.Component {
             characters: [],
             showChart: 'none',
             picture: '',
+            filteredCharacters: [],
         }
         this.hideChart = this.hideChart.bind(this);
         this.sortByAff = this.sortByAff.bind(this);
@@ -149,7 +152,7 @@ class Hufflepuff extends React.Component {
                     charState[i].thumbnail = el.thumbnail
                 })
                 this.setState({
-                    characters: charState
+                    filteredCharacters: charState
                 });
             });
 
@@ -180,11 +183,11 @@ class Hufflepuff extends React.Component {
                 </div>
                 {Chart}
                 <div className="characterBios">
-                    {this.state.characters.map((character) => {
+                    {this.state.filteredCharacters.map((character) => {
 
                         return (
                             // charName = this.props.character.name
-                            <div>{this.props.characterBio(character)}</div>
+                            <CharacterBio character={character} />
                         )
                     })}
                 </div>
