@@ -75,7 +75,7 @@ class Gryffindor extends React.Component {
         const images = charState.map((char) => {
             return axios({
                 method: 'GET',
-                url: 'http://proxy.hackeryou.com',
+                url: 'https://proxy.hackeryou.com',
                 dataResponse: 'json',
                 paramsSerializer: function (params) {
                     return Qs.stringify(params, { arrayFormat: 'brackets' })
