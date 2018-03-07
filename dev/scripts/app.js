@@ -69,9 +69,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // characters : [],
     }
-    this.characterBio = this.characterBio.bind(this);
   }
   componentDidMount() {
     // axios.get(`${config.HPapiURL}`, {
@@ -87,58 +85,6 @@ class App extends React.Component {
     //     }); 
     //   });
   }
-
-  
-  characterBio(event) {
-    let affiliation;
-    // console.log(event);
-
-    if (event.dumbledoresArmy === true) {
-      affiliation = (
-        "Dumbledores Army"
-      )
-
-    } else if (event.deathEater === true) {
-      affiliation = (
-        "Death Eater"
-      )
-    } else {
-      affiliation = (
-        "Unaffiliated"
-      )
-    }
-    let characterBio;
-
-    characterBio = (
-      <div className="characterBio">
-        <div className="cardContainer">
-          <div className="cardFrontContainer">
-            <div className="cardFront">
-              <img className="frogCardFrontBorder" src="./chocolatefrog.png" alt="Chocolate Frog Card border" />
-              <img className="portrait" src={event.thumbnail} alt="" />
-            </div>
-          </div>
-          <div className="cardBackContainer">
-            <div className="cardBack">
-              <img className="frogCardBackBorder" src="./chocolatefrogback.png" alt="" />
-              <div className="characterInfo">
-                <h6 className={event.house}>{event.house}</h6>
-                {/* <h6>{event.bloodStatus}</h6> */}
-                <h6>{event.wand}</h6>
-                <h6>{event.patronus}</h6>
-                <h6>{affiliation}</h6>
-              </div>
-            </div>
-          </div>  
-        </div>
-        <h2 className="characterName" >{event.name}</h2>
-      </div>
-    )
-    return characterBio;
-
-    
-  }
-
 render() {
   return(
     <div>
@@ -171,7 +117,7 @@ render() {
             }}
           />
           <footer>
-            <p>Credit to: Gian Paolo Delfino for the icon. Kristen Spencer for the HarryPotterAPI. Created by Jay Button, Natalie Van Dine and Meagan Moore</p>
+            <p>Credit to: Kristen Spencer for the HarryPotterAPI; Gian Paolo Delfino for the icon. Created by Jay Button, Natalie Van Dine and Meagan Moore &copy; 2018</p>
           </footer>
         </div>
       </Router>

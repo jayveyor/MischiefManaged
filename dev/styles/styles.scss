@@ -3,24 +3,26 @@
 @import "partials/_landing.scss";
 @import "partials/_frogCard.scss";
 
+
 .gryffindor {
-    background-color:$gryff;
-    border:7px solid $gryff;
+    background-color: $gryff;
+    border: 7px solid $gryff;
     border-radius: 2px;
     transition: .2s;
 }
 
 .gryffindor:hover,
 .gryffindor:focus {
-    background-color:$gryff;
+    background-color: $gryff;
 }
 
 .hufflepuff {
     background-color: $yellow;
-    border:7px solid $yellow;
+    border: 7px solid $yellow;
     transition: .2s;
     border-radius: 2px;
 }
+
 .hufflepuff:hover,
 .hufflepuff:focus {
     background-color: $yellow
@@ -28,10 +30,11 @@
 
 .ravenclaw {
     background-color: $raven;
-    border:7px solid $raven;
+    border: 7px solid $raven;
     transition: .2s;
     border-radius: 2px;
 }
+
 .ravenclaw:hover,
 .ravenclaw:focus {
     background-color: $raven;
@@ -39,7 +42,7 @@
 
 .slytherin {
     background-color: $green;
-    border:7px solid $green;
+    border: 7px solid $green;
     transition: .2s;
     border-radius: 2px;
 }
@@ -50,8 +53,8 @@
 }
 
 a {
-    color:black;
-    text-decoration:none;
+    color: black;
+    text-decoration: none;
 }
 
 body {
@@ -73,10 +76,13 @@ canvas {
     margin: 0 auto;
     margin-bottom: 20px;
 }
+.mainBody {
+    margin: 0 auto;
+}
 
 .characterBios {
-    margin:0 auto;
-    width:80%;
+    margin: 0 auto;
+    width: 80%;
     height: 100%;
 }
 
@@ -84,63 +90,39 @@ button {
     height: 55px;
     padding: 10px;
     width: 150px;
+    border-radius: 3px;
     background-color: black;
-    color: white;
+    color: #eabc3f;
     line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: 1px;
     border: none;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    box-shadow: 0px 0px 10px 1px rgb(36, 35, 35);
 }
 
 .buttons {
     margin:50px auto;
     width:400px;
 }
+
+.buttons p {
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding: 20px;
+}
+
 .buttons :last-child {
     float:right;
 }
 
-//for Frog Card styles see partials folder
-
-// .characterBio {
-//     float:left;
-//     height: 440px;
-//     margin: 0 15px;
-//     position:relative;
-//     text-align:center;
-//     max-width: 350px;
-// }
-
-// .characterBio h2 {
-//     margin: 15px auto;
-// }
-// .frogCard {
-//     height: 300px;
-//     position:relative;
-//     z-index:2;
-// }
-// .portrait {
-//     position: absolute;
-//     z-index: 1;
-//     height: 170px;
-//     left: 28%;
-//     top: 22%;
-// }
-
-// .characterInfo {
-//     position: absolute;
-//     z-index:4;
-//     top:30%;
-//     width:320px;
-// }
-
-// .characterInfo h6 {
-//     color: $tan;
-// }
 
 .houseTabs {
-  width: 100%;
-  height:100px;
-  font-family: $heading;
-  box-shadow: 0px 0px 30px 5px rgb(36,35,35);
+    width: 100%;
+    height:100px;
+    font-family: $heading;
+    box-shadow: 0px 0px 30px 5px rgb(36, 35, 35);
 }
 
 .houseTabs div {
@@ -151,9 +133,13 @@ button {
 }
 
 .houseTabs a {
-    padding: 30px 25%;
+    padding: 20px ;
     color:black;
     font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    // text-shadow: 2px 1px rgb(57, 57, 57);
 }
 
 header h2 {
@@ -162,12 +148,15 @@ header h2 {
 
 footer {
     clear: both;
+    padding: 10px;
 }
 
 footer p {
     font-size: 1.2rem;
     text-shadow: none;
     color:black;
+    line-height: 2;
+    letter-spacing: 0.3px;
 }
 
 @media (max-width: 1325px) {
@@ -185,6 +174,9 @@ footer p {
 @media (max-width: 1060px) {
     .characterBios {
         width: 80%;
+    }
+    .characterBio {
+        width:50%;
     }
 }
 
@@ -221,10 +213,16 @@ footer p {
     .characterBios {
         width: 60%;
     }
+    .characterBio {
+        width: 100%;
+    }
 }
 
 @media (max-width: 500px) {
     .characterBios {
         width: 80%;
+    }
+    .houseTabs a {
+        padding: 5px;
     }
 }

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Affiliation from './Affiliation';
 import Ancestry from './Ancestry';
 import HeaderTabs from './HeaderTabs';
+import CharacterBio from './characterBio';
 
 
 class Gryffindor extends React.Component {
@@ -22,6 +23,7 @@ class Gryffindor extends React.Component {
             characters: [],
             showChart: 'none',
             picture: '',
+            filteredCharacters: [],
         }
         this.hideChart = this.hideChart.bind(this);
         this.sortByAff = this.sortByAff.bind(this);
@@ -83,8 +85,8 @@ class Gryffindor extends React.Component {
                     params: {
                         format: 'json',
                         titles: char.name,
-                        width: 250,
-                        height: 250,
+                        // width: 200,
+                        // height: 200,
                     }
                 }
             });
@@ -151,7 +153,7 @@ class Gryffindor extends React.Component {
                     charState[i].thumbnail = el.thumbnail
                 })
                 this.setState({
-                    characters: charState
+                    filteredCharacters: charState
                 });
             });
 
@@ -177,16 +179,17 @@ class Gryffindor extends React.Component {
             <div className="mainBody">
                 <HeaderTabs />
                 <div className="buttons">
+                    <p>Click the buttons for Gryffindor Data Wizualizations</p>
                     <button onClick={this.sortByAff}>Affiliation</button>
                     <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
                 </div>
                 {Chart}
-                <div className="characterBios">
-                {this.state.characters.map((character) => {
+                <div className="characterBios clearfix">
+                    {this.state.filteredCharacters.map((character) => {
 
                     return (
                         // charName = this.props.character.name
-                        <div>{this.props.characterBio(character)}</div>
+                        <CharacterBio character={character} />
                     )
                 })}
                 </div>
