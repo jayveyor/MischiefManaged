@@ -1,22 +1,24 @@
 .characterBio {
-    width: 350px;
+    width: 33%;
     height: 440px;
     // margin: 15px;
     float: left;
-    border: 1px solid red;
     position: relative;
 }
 
 .characterBio h2 {
     margin: 15px auto;
+    font-weight: 600;
 }
+
 .cardContainer {
     height: 300px;
-    max-width: 350px;
-    margin: 0 15px;
+    max-width: 320px;
+    margin: 0 auto;
     position: relative;
     perspective: 800px;
     transform-style: preserve-3d;
+    
 }
 
 .cardFrontContainer,
@@ -27,12 +29,15 @@
     width: 100%;
     transition: all 0.4s ease-in-out;
     backface-visibility: hidden;
+
+
 }
 .cardBackClicked {
     position: absolute;
     height: 100%;
     width: 100%;
-    
+}
+
 .cardBackContainer {
     transform: rotateY(180deg);
 }
@@ -41,7 +46,15 @@
 .cardBack {
     height: 300px;
     position: relative;
+
 }
+
+// .frogCardBackBorder,
+// .frogCardFrontBorder,
+// .portrait,
+// .characterInfo {
+//     left: 10px;
+// }
 
 .frogCardFrontBorder {
     height: 100%;
@@ -52,9 +65,11 @@
 .portrait {
     position: absolute;
     z-index: 1;
-    height: 200px;
-    left: 25%;
-    top: 28%;
+    height: 60%;
+    transform: translate(-50%, -38%);
+    left: 50%;
+    top: 50%;
+    
 }
 
 .frogCardBackBorder {
@@ -68,11 +83,23 @@
     z-index: 4;
     top: 30%;
     width: 320px;
+    
 }
 
 .characterInfo h6 {
-    color: $tan;
+    color: #d6a037;
+    font-size: 1.6rem;
+    font-weight: 300;
+    max-width: 60%;
 }
+
+.cardInfoTitles {
+    font-weight: 600;
+}
+
+// .characterInfoHouse {
+//     padding-top: 30px;
+// }
 
 .cardContainer:hover .cardBackContainer {
     transform: rotateY(0);

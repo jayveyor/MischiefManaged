@@ -117,7 +117,7 @@ render() {
             }}
           />
           <footer>
-            <p>Credit to: Gian Paolo Delfino for the icon. Kristen Spencer for the HarryPotterAPI. Created by Jay Button, Natalie Van Dine and Meagan Moore</p>
+            <p>Credit to: Kristen Spencer for the HarryPotterAPI; Gian Paolo Delfino for the icon. Created by Jay Button, Natalie Van Dine and Meagan Moore &copy; 2018</p>
           </footer>
         </div>
       </Router>

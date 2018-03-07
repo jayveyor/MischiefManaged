@@ -24,7 +24,7 @@ class Affiliation extends React.Component {
                     {
                         label: 'Magic Stuff',
                         data: [this.props.deathEaterCount, this.props.DACount, this.props.unaffiliatedCount],
-                        backgroundColor: ['purple', 'orange', 'pink']
+                        backgroundColor: ['black', 'goldenrod', 'slategrey']
                     }
                 ]
             }            
