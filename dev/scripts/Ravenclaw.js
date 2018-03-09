@@ -39,7 +39,6 @@ class Ravenclaw extends React.Component {
             }
         })
             .then(({ data }) => {
-                // console.log(data);
                 this.setState({
                     characters: data
                 });
@@ -74,7 +73,7 @@ class Ravenclaw extends React.Component {
         const images = charState.map((char) => {
             return axios({
                 method: 'GET',
-                url: 'http://proxy.hackeryou.com',
+                url: 'https://proxy.hackeryou.com',
                 dataResponse: 'json',
                 paramsSerializer: function (params) {
                     return Qs.stringify(params, { arrayFormat: 'brackets' })
@@ -84,8 +83,6 @@ class Ravenclaw extends React.Component {
                     params: {
                         format: 'json',
                         titles: char.name,
-                        width: 250,
-                        height: 250,
                     }
                 }
             });
@@ -93,7 +90,7 @@ class Ravenclaw extends React.Component {
 
 
         charState.forEach((char) => {
-            // console.log(this.state.pictures)
+
 
             if (char.bloodStatus === 'pure-blood') {
                 this.setState((prevState, props) => {
@@ -178,15 +175,15 @@ class Ravenclaw extends React.Component {
             <div className="mainBody">
                 <HeaderTabs />
                 <div className="buttons">
+                    <p>Click the buttons for Ravenclaw Data Wizualizations</p>
                     <button onClick={this.sortByAff}>Affiliation</button>
                     <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
                 </div>
                 {Chart}
-                <div className="characterBios">
+                <div className="characterBios clearfix">
                     {this.state.filteredCharacters.map((character) => {
 
                         return (
-                            // charName = this.props.character.name
                             <CharacterBio character={character} />
                         )
                     })}

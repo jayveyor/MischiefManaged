@@ -20,18 +20,18 @@ p.tagline {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -39%);
+    transform: translate(-50%, -28%);
     z-index: 99;
     font-family: $heading;
-    background-image: url(../../banner-solid.png);
+    background-image: url(../.././assets/banner-solid.png);
     background-position: center;
     background-repeat: no-repeat;
-    height:50%;
+    height:30%;
     width:100%;
     font-size: 2rem;
     position: absolute;
     h1 {
-        transform: translate(0, 180%);
+        transform: translate(0, 55%);
 
     }
 }
@@ -42,7 +42,6 @@ p.tagline {
     margin-left: 25%;
     box-shadow: 0px 0px 15px 1px black;
     width:50%;
-    color:#dadada;
     font-size: 2.5rem;
     border-radius: 2px;
     &:hover {
@@ -51,55 +50,51 @@ p.tagline {
 }
 
 .words p {
-    color: #dadada;
+    color: black;
 }
 
 
 .gryffindor-landing {
     background-image: 
         linear-gradient(rgba(155, 10, 24, 0.75), rgba(155, 10, 24, 0.75)),
-        url(../../lion.jpg);
+        url(../.././assets/lion.jpg);
         .words {
-            background-color:$gryff;
-            &:hover, &:focus {
-                background-color: darken($gryff, 10);
-            }
+            background-color: rgb(190, 152, 91);
+            background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
+            border: 7px solid $gryff;
         }
 }
 
 .hufflepuff-landing {
     background-image: 
         linear-gradient(rgba(252, 192, 56, 0.75), rgba(252, 192, 56, 0.75)),
-        url(../../badger.jpg);
+        url(../.././assets/badger.jpg);
         .words {
-            background-color:$yellow;
-            &:hover, &:focus {
-                background-color: darken($yellow, 10);
-            }
+            background-color: rgb(190, 152, 91);
+            background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
+            border: 7px solid $yellow;
         }
 }
 
 .ravenclaw-landing {
     background-image: 
         linear-gradient(rgba(45, 66, 142, 0.75), rgba(45, 66, 142, 0.75)),
-        url(../../raven.jpg);
+        url(../.././assets/raven.jpg);
         .words {
-            background-color: $raven;
-            &:hover, &:focus {
-                background-color: darken($raven, 10);
-            }
+            background-color: rgb(190, 152, 91);
+            background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
+            border: 7px solid $raven;
         }
 }
 
 .slytherin-landing {
     background-image: 
         linear-gradient(rgba(16, 107, 79, 0.75), rgba(16, 107, 79, 0.75)),
-        url(../../serpent.jpeg);
+        url(../.././assets/serpent.jpeg);
         .words {
-            background-color: $green;
-            &:hover,  &:focus {
-                background-color: darken($green, 10);
-            }
+            background-color: rgb(190, 152, 91);
+            background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
+            border: 7px solid $green;
         }
 }
 
@@ -112,7 +107,7 @@ p.tagline {
     .instructions {
         top:90px;
         h1 {
-        transform: translate(0, 100px);
+        transform: translate(0, 30px);
 
     }
     }
