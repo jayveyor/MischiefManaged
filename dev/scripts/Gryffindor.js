@@ -179,6 +179,9 @@ class Gryffindor extends React.Component {
         return (
             <div className="mainBody">
                 <HeaderTabs />
+                <div className="instructions">
+                    <p> Hover over the cards below for more information on each character. Click on them to keep them flipped.</p>
+                </div>
                 <div className="buttons">
                     <p>Click the buttons for Gryffindor Data Wizualizations</p>
                     <button className={affiliation} onClick={this.sortByAff}>Affiliation</button>

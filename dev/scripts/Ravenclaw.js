@@ -178,7 +178,10 @@ class Ravenclaw extends React.Component {
         return (
             <div className="mainBody">
                 <HeaderTabs />
-                <div className="buttons">
+                <div className="instructions">
+                    <p> Hover over the cards below for more information on each character. Click on them to keep them flipped.</p>
+                </div>
+                <div className="buttons"> 
                     <p>Click the buttons for Ravenclaw Data Wizualizations</p>
                     <button className={affiliation} onClick={this.sortByAff}>Affiliation</button>
                     <button className={ancestry} onClick={this.sortByAnces}>Wizarding Ancestry</button>

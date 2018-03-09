@@ -5,11 +5,15 @@
 
 
 .gryffindor {
-    background-color: rgb(190, 152, 91);
+    background-color: rgb(209, 186, 150);
     background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
     border: 7px solid $gryff;
     border-radius: 2px;
     transition: .2s;
+}
+
+.gryff {
+    color:$gryff;
 }
 
 .gryffindor:hover,
@@ -18,7 +22,7 @@
 }
 
 .hufflepuff {
-    background-color: rgb(190, 152, 91);
+    background-color: rgb(209, 186, 150);
     background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
     border: 7px solid $yellow;
     transition: .2s;
@@ -31,11 +35,15 @@
 }
 
 .ravenclaw {
-    background-color: rgb(190, 152, 91);
+    background-color: rgb(209, 186, 150);
     background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
     border: 7px solid $raven;
     transition: .2s;
     border-radius: 2px;
+}
+
+.raven{
+    color:$raven;
 }
 
 .ravenclaw:hover,
@@ -44,7 +52,7 @@
 }
 
 .slytherin {
-    background-color: rgb(190, 152, 91);
+    background-color: rgb(209, 186, 150);
     background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
     border: 7px solid $green;
     transition: .2s;
@@ -62,7 +70,7 @@ a {
 }
 
 body {
-    background-color: rgb(190, 152, 91);
+    background-color: rgb(209, 186, 150);
     background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
     font-family: $main-text;
     font-size: 1.6rem;
@@ -118,10 +126,20 @@ button {
     font-size: 1.8rem;
     font-weight: 600;
     padding: 20px;
+    line-height: 1.75;
 }
 
 .buttons :last-child {
     float:right;
+}
+
+.instructions {
+    padding-top:50px;
+    max-width:50%;
+    margin:0 auto;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.75;
 }
 
 .highlight {
@@ -214,6 +232,9 @@ footer p {
 @media (max-width: 800px) {
     .characterBios {
         width: 100%;
+    }
+    .instructions {
+        width:80%;
     }
 }
 
