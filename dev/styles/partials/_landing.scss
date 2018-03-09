@@ -16,7 +16,7 @@ p.tagline {
     letter-spacing: 1px;
 }
 
-.instructions {
+.banner {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -104,7 +104,7 @@ p.tagline {
         min-height:80vh;
     }
 
-    .instructions {
+    .banner {
         top:90px;
         h1 {
         transform: translate(0, 30px);

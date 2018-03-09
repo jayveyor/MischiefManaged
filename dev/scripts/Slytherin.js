@@ -173,6 +173,9 @@ class Slytherin extends React.Component {
         return (
             <div className="mainBody">
                 <HeaderTabs />
+                <div className="instructions">
+                    <p> Hover over the cards below for more information on each character. Click on them to keep them flipped.</p>
+                </div>
                 <div className="buttons">
                     <p>Click the buttons for Slytherin Data Wizualizations</p>
                     <button onClick={this.sortByAff}>Affiliation</button>
