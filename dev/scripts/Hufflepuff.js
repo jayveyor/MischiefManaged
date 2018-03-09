@@ -161,25 +161,37 @@ class Hufflepuff extends React.Component {
     }
     render() {
         let Chart;
+        let Affiliation;
+        let Ancestry;
         if (this.state.showChart === 'Affiliation') {
-            Chart = (<div><div className="hideButton"><button onClick={this.hideChart}>Hide Chart</button></div>
+            Chart = (<div><div className="hideButton"><button onClick={this.hideChart}><i className="fas fa-times"></i></button></div>
                 <Affiliation DACount={this.state.DACount} deathEaterCount={this.state.deathEaterCount} unaffiliatedCount={this.state.unaffiliatedCount} /></div>
             )
+            Affiliation = (
+                'highlighted'
+            )
+            Ancestry = ('')
         }
         else if (this.state.showChart === 'Ancestry') {
-            Chart = (<div><div className="hideButton"><button onClick={this.hideChart}>Hide Chart</button></div>
+            Chart = (<div><div className="hideButton"><button onClick={this.hideChart}><i className="fas fa-times"></i></button></div>
                 <Ancestry purebloodCount={this.state.purebloodCount} muggleCount={this.state.muggleCount} mixedCount={this.state.mixedCount} unknownCount={this.state.unknownCount} /></div>
+            )
+            Affiliation = ('')
+            Ancestry = (
+                'highlighted'
             )
         }
         else {
             Chart = (<div></div>)
+            Affiliation = ('')
+            Ancestry = ('')
         }
         return (
             <div className="mainBody">
                 <HeaderTabs />
                 <div className="buttons">
-                    <button onClick={this.sortByAff}>Affiliation</button>
-                    <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
+                    <button className={Affiliation} onClick={this.sortByAff}>Affiliation</button>
+                    <button className={Ancestry} onClick={this.sortByAnces}>Wizarding Ancestry</button>
                 </div>
                 {Chart}
                 <div className="characterBios">

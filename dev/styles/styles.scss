@@ -89,43 +89,9 @@ button {
     float:right;
 }
 
-//for Frog Card styles see partials folder
-
-// .characterBio {
-//     float:left;
-//     height: 440px;
-//     margin: 0 15px;
-//     position:relative;
-//     text-align:center;
-//     max-width: 350px;
-// }
-
-// .characterBio h2 {
-//     margin: 15px auto;
-// }
-// .frogCard {
-//     height: 300px;
-//     position:relative;
-//     z-index:2;
-// }
-// .portrait {
-//     position: absolute;
-//     z-index: 1;
-//     height: 170px;
-//     left: 28%;
-//     top: 22%;
-// }
-
-// .characterInfo {
-//     position: absolute;
-//     z-index:4;
-//     top:30%;
-//     width:320px;
-// }
-
-// .characterInfo h6 {
-//     color: $tan;
-// }
+.highlighted {
+    border:1 px solid yellow;
+}
 
 .houseTabs {
   width: 100%;
