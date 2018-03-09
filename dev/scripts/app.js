@@ -29,7 +29,7 @@ class Home extends React.Component {
       return (
         <div>
           <main>
-            <div className="instructions">
+            <div className="banner">
               <h1>Mischief Managed</h1>
             </div>
             <div className="gryffindor-landing landing">
@@ -102,7 +102,7 @@ render() {
             }}
           />
           <footer>
-            <p>Credit to: Kristen Spencer for the HarryPotterAPI; Gian Paolo Delfino for the icon. Created by Jay Button, Natalie Van Dine and Meagan Moore &copy; 2018</p>
+            <p>Credit to: Kristen Spencer for the HarryPotterAPI; Gian Paolo Delfino for the icon. Created by <a href="" className="raven">Jay Button</a>, <a href="natvandine.com" className="gryff">Natalie Van Dine</a>  and <a href="mdjm.io" className="gryff">Meagan Moore</a> &copy; 2018</p>
           </footer>
         </div>
       </Router>
