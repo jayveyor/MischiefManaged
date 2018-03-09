@@ -160,15 +160,19 @@ class Hufflepuff extends React.Component {
     }
     render() {
         let Chart;
+        let affiliation;
+        let ancestry;
         if (this.state.showChart === 'Affiliation') {
-            Chart = (<div><div className="hideButton"><button onClick={this.hideChart}>Hide Chart</button></div>
+            Chart = (<div><div className="hideButton"><button onClick={this.hideChart}><i class="fas fa-times"></i></button></div>
                 <Affiliation DACount={this.state.DACount} deathEaterCount={this.state.deathEaterCount} unaffiliatedCount={this.state.unaffiliatedCount} /></div>
             )
+            affiliation = "highlight"
         }
         else if (this.state.showChart === 'Ancestry') {
-            Chart = (<div><div className="hideButton"><button onClick={this.hideChart}>Hide Chart</button></div>
+            Chart = (<div><div className="hideButton"><button onClick={this.hideChart}><i class="fas fa-times"></i></button></div>
                 <Ancestry purebloodCount={this.state.purebloodCount} muggleCount={this.state.muggleCount} mixedCount={this.state.mixedCount} unknownCount={this.state.unknownCount} /></div>
             )
+            ancestry = "highlight"
         }
         else {
             Chart = (<div></div>)
@@ -180,9 +184,9 @@ class Hufflepuff extends React.Component {
                     <p> Hover over the cards below for more information on each character. Click on them to keep them flipped.</p>
                 </div>
                 <div className="buttons">
-                    <p> Click the buttons for Hufflepuff Data Wizualizations</p>
-                    <button onClick={this.sortByAff}>Affiliation</button>
-                    <button onClick={this.sortByAnces}>Wizarding Ancestry</button>
+                    <p>Click the buttons for Hufflepuff Data Wizualizations</p>
+                    <button className={affiliation} onClick={this.sortByAff}>Affiliation</button>
+                    <button className={ancestry} onClick={this.sortByAnces}>Wizarding Ancestry</button>
                 </div>
                 {Chart}
                 <div className="characterBios clearfix">

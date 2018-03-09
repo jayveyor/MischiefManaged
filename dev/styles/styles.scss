@@ -84,9 +84,12 @@ canvas {
 }
 
 .hideButton {
-    width: 150px;
+    width: 50px;
     margin: 0 auto;
     margin-bottom: 20px;
+}
+.hideButton button {
+    width:50px;
 }
 .mainBody {
     margin: 0 auto;
@@ -139,6 +142,9 @@ button {
     line-height: 1.75;
 }
 
+.highlight {
+    border: 2px solid #eabc3f;
+}
 .houseTabs {
     width: 100%;
     height:100px;
