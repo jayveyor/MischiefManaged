@@ -14,8 +14,9 @@ class Affiliation extends React.Component {
         this.state = {
             chartData: {
             }
-            };
+        };
     }
+    // For data visualization chart.
     componentDidMount() {
         this.setState({
             chartData: {
@@ -24,7 +25,7 @@ class Affiliation extends React.Component {
                     {
                         label: 'Magic Stuff',
                         data: [this.props.deathEaterCount, this.props.DACount, this.props.unaffiliatedCount],
-                        backgroundColor: ['purple', 'orange', 'pink']
+                        backgroundColor: ['black', 'goldenrod', 'slategrey']
                     }
                 ]
             }            

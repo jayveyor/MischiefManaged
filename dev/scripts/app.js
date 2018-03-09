@@ -12,7 +12,7 @@ import Ravenclaw from './ravenclaw.js'
 import Slytherin from './slytherin.js'
 import Hufflepuff from './hufflepuff.js'
 import config from './config';
-// import Chart from './Chart';
+
 import HeaderTabs from './HeaderTabs'
 
 
@@ -21,13 +21,10 @@ class Home extends React.Component {
     super();
     this.state = {
       characters: [],
-      // pictures: []
     }
-
-
   }
 
-
+    // Create landing page for user to select a house.
     render() {
       return (
         <div>
@@ -37,25 +34,25 @@ class Home extends React.Component {
             </div>
             <div className="gryffindor-landing landing">
               <div className="words">
-                <Link to="/gryffindor"><p>Gryffindor <p className="tagline">Gather info on Gryffindor </p> </p></Link>
+                <Link to="/gryffindor">Gryffindor <p className="tagline">Gather info on Gryffindor</p></Link>
                 
               </div>
             </div>
             <div className="hufflepuff-landing landing"> 
               <div className="words">
-                <Link to="/hufflepuff"><p>Hufflepuff <p className="tagline">Harvest facts on Hufflepuff</p></p></Link>
+                <Link to="/hufflepuff">Hufflepuff <p className="tagline">Harvest facts on Hufflepuff</p></Link>
                 
               </div>
             </div>
             <div className="ravenclaw-landing landing">
               <div className="words">
-                <Link to="/ravenclaw"><p>Ravenclaw <p className="tagline">Read up on Ravenclaw</p></p></Link>
+                <Link to="/ravenclaw">Ravenclaw <p className="tagline">Read up on Ravenclaw</p></Link>
                 
               </div>
             </div>
             <div className="slytherin-landing landing">
               <div className="words">
-                <Link to="/slytherin"><p>Slytherin <p className="tagline">Search the stats in Slytherin</p></p></Link>
+                <Link to="/slytherin">Slytherin <p className="tagline">Search the stats in Slytherin</p></Link>
                 
               </div>
             </div>
@@ -71,20 +68,8 @@ class App extends React.Component {
     this.state = {
     }
   }
-  componentDidMount() {
-    // axios.get(`${config.HPapiURL}`, {
-    //   params: {
-    //     key: config.HPapiKey,
-    //     school: config.school,
-    //   }
-    // })
-    //   .then(({ data }) => {
 
-    //     this.setState({
-    //       characters: data
-    //     }); 
-    //   });
-  }
+  //This is where the Routes live.
 render() {
   return(
     <div>
@@ -117,7 +102,7 @@ render() {
             }}
           />
           <footer>
-            <p>Credit to: Gian Paolo Delfino for the icon. Kristen Spencer for the HarryPotterAPI. Created by Jay Button, Natalie Van Dine and Meagan Moore</p>
+            <p>Credit to: Kristen Spencer for the HarryPotterAPI; Gian Paolo Delfino for the icon. Created by Jay Button, Natalie Van Dine and Meagan Moore &copy; 2018</p>
           </footer>
         </div>
       </Router>
