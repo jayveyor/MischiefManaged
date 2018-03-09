@@ -76,9 +76,12 @@ canvas {
 }
 
 .hideButton {
-    width: 150px;
+    width: 50px;
     margin: 0 auto;
     margin-bottom: 20px;
+}
+.hideButton button {
+    width:50px;
 }
 .mainBody {
     margin: 0 auto;
@@ -121,13 +124,9 @@ button {
     float:right;
 }
 
-<<<<<<< HEAD
-.highlighted {
-    border:1 px solid yellow;
+.highlight {
+    border: 2px solid #eabc3f;
 }
-=======
->>>>>>> 5285b3c6760343166e6adb096b688e99558401de
-
 .houseTabs {
     width: 100%;
     height:100px;
